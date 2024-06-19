@@ -1,0 +1,40 @@
+#shopify-section-sections--15951473213521__multicolumn-with-icons {
+    --section-padding-top: 60px;
+    --section-padding-bottom: 60px;
+}
+#shopify-section-sections--15951473213521__footer {
+    --section-padding-top: 72px;
+    --section-padding-bottom: 72px;
+    --color-background: 31 31 31;
+    --color-foreground: 255 255 255;
+    --color-border: var(--color-foreground)/ 0.1;
+    --color-border-dark: var(--color-foreground)/ 0.4;
+    --color-border-light: var(--color-foreground)/ 0.06;
+    --color-button-background: 255 255 255;
+    --color-button-border: 255 255 255;
+    --color-button-text: 0 0 0;
+}
+.footer__logo>a {
+    height: 55px;
+}
+#shopify-section-sections--15951473213521__footer-copyright {
+    --gradient-background: #171717;
+    --color-background: 23 23 23;
+    --color-foreground: 255 255 255;
+}
+@media (min-width: 1280px) {
+    .footer__item--link_list-1 {
+        width: calc(50% - var(--sp-12));
+    }
+    .footer__item--link_list-2 {
+        width: calc(50% - var(--sp-12));
+    }
+    .footer__item--brand_information {
+        width: calc(50% - var(--sp-12));
+    }
+}
+/* @media (min-width: 1280px) {
+    .footer__item--link_list-2 {
+        width: calc(50% - var(--sp-12));
+    }
+} */

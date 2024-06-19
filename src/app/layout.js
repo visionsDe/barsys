@@ -1,4 +1,6 @@
 import { Inter } from "next/font/google";
+import "../assets/theme.css";
+import "../assets/blog.css";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -10,8 +12,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en"> 
+      <body className={inter.className +" " + "template-index"}  data-rounded-button="round" data-rounded-input="round-slight" data-rounded-block="round"
+    data-button_hover="standard" data-lazy-image data-page-rendering>{children}</body>
     </html>
   );
 }
