@@ -1730,7 +1730,7 @@
               e = l && JSON.parse(l);
             } catch (e) {
               return void (
-                i && i.error(`Error parsing ${o} on ${t.className}: ${e}`)
+                i && i.error(`Error parsing ${o} on ${t.class}: ${e}`)
               );
             }
             let r = new s(t, e);
@@ -2164,7 +2164,7 @@
             (this.beginMargin = s ? "marginRight" : "marginLeft"),
             (this.endMargin = s ? "marginLeft" : "marginRight"),
             (this.viewport = document.createElement("div")),
-            (this.viewport.className = "flickity-viewport"),
+            (this.viewport.class = "flickity-viewport"),
             this._createSlider(),
             (this.focusableElems = [this.element]),
             (e || i) && t.addEventListener("resize", this);
@@ -2200,7 +2200,7 @@
         }),
         (p._createSlider = function () {
           let t = document.createElement("div");
-          (t.className = "flickity-slider"), (this.slider = t);
+          (t.class = "flickity-slider"), (this.slider = t);
         }),
         (p._filterFindCellElements = function (t) {
           return s.filterFindElements(t, this.options.cellSelector);
@@ -2768,7 +2768,7 @@
     }
     (i.prototype._create = function (t) {
       let e = (this.element = document.createElement("button"));
-      e.className = `flickity-button flickity-prev-next-button ${this.increment}`;
+      e.class = `flickity-button flickity-prev-next-button ${this.increment}`;
       let i = this.isPrevious ? "Previous" : "Next";
       e.setAttribute("type", "button"),
         e.setAttribute("aria-label", i),
@@ -2881,7 +2881,7 @@
   })("undefined" != typeof window ? window : this, function (t, e) {
     function i() {
       (this.holder = document.createElement("div")),
-        (this.holder.className = "flickity-page-dots"),
+        (this.holder.class = "flickity-page-dots"),
         (this.dots = []);
     }
     (i.prototype.setDots = function (t) {
@@ -2894,7 +2894,7 @@
           i.setAttribute("type", "button");
           let s = e + 1 + this.dots.length;
           return (
-            (i.className = "flickity-page-dot"),
+            (i.class = "flickity-page-dot"),
             i.setAttribute("aria-label", `View slide ${s}`),
             i
           );
@@ -3723,7 +3723,7 @@
   "use strict";
   function t(t, i, s) {
     const h = document.createElement(i);
-    return t && (h.className = t), s && s.appendChild(h), h;
+    return t && (h.class = t), s && s.appendChild(h), h;
   }
   function i(t, i, s) {
     (t.style.width = "number" == typeof i ? `${i}px` : i),

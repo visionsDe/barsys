@@ -12,9 +12,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en"> 
-      <body className={inter.className +" " + "template-index"}  data-rounded-button="round" data-rounded-input="round-slight" data-rounded-block="round"
-    data-button_hover="standard" data-lazy-image data-page-rendering>{children}</body>
+    <html lang="en">
+      <body
+        class={inter.class + " " + "template-index"}
+        data-rounded-button="round"
+        data-rounded-input="round-slight"
+        data-rounded-block="round"
+        data-button_hover="standard"
+        data-lazy-image
+        data-page-rendering
+      >
+        {children}
+      </body>
     </html>
   );
 }

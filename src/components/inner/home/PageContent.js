@@ -1,26 +1,30 @@
 import React from "react";
 import "./pagecontent.css";
 import Image from "next/image";
-import Link from 'next/link'
+import Link from "next/link";
+import MixlistSlider from "@/components/homePageComponents/MixlistSlider";
 const PageContent = () => {
   const videoData = [
     {
       mobilePoster: require("../../../assets/images/banner-barsys-360-video-mobile-poster.jpg"),
       mobileVideo: "../../../assets/videos/banner-barsys-360-video-mobile.mp4",
       desktopPoster: require("../../../assets/images/banner-barsys-360-video-desktop-poster.jpg"),
-      desktopVideo: "../../../assets/videos/banner-barsys-360-video-desktop.mp4",
+      desktopVideo:
+        "../../../assets/videos/banner-barsys-360-video-desktop.mp4",
     },
     {
       mobilePoster: require("../../../assets/images/banner-coaster-2-0-video-mobile-poster.jpg"),
       mobileVideo: "../../../assets/videos/banner-coaster-2-0-video-mobile.mp4",
       desktopPoster: require("../../../assets/images/banner-coaster-2-0-video-desktop-poster.jpg"),
-      desktopVideo: "../../../assets/videos/banner-coaster-2-0-video-desktop.mp4",
+      desktopVideo:
+        "../../../assets/videos/banner-coaster-2-0-video-desktop.mp4",
     },
     {
       mobilePoster: require("../../../assets/images/banner-barsys-2-0-video-mobile-poster.jpg"),
       mobileVideo: "../../../assets/videos/banner-barsys-2-0-video-mobile.mp4",
       desktopPoster: require("../../../assets/images/banner-barsys-2-0-video-desktop-poster.jpg"),
-      desktopVideo: "../../../assets/videos/banner-barsys-2-0-video-desktop.mp4",
+      desktopVideo:
+        "../../../assets/videos/banner-barsys-2-0-video-desktop.mp4",
     },
   ];
 
@@ -50,13 +54,13 @@ const PageContent = () => {
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-width="6"
+                        strokeLinecap="round"
+                        strokeWidth="6"
                         d="M9 4V32"
                       ></path>
                       <path
-                        stroke-linecap="round"
-                        stroke-width="6"
+                        strokeLinecap="round"
+                        strokeWidth="6"
                         d="M27 4V32"
                       ></path>
                     </svg>
@@ -78,8 +82,8 @@ const PageContent = () => {
                 <slideshow-element
                   class="slideshow block"
                   id="Slider-template--15951546220625__slideshow"
-                  autoplay
-                  autoplay-speed="7"
+                  autoPlay
+                  autoPlay-speed="7"
                 >
                   {videoData?.map((data, id) => {
                     return (
@@ -106,9 +110,9 @@ const PageContent = () => {
 
                               <template>
                                 <video
-                                  playsinline="true"
+                                  playsInline="true"
                                   muted="muted"
-                                  autoplay="autoplay"
+                                  autoPlay="autoPlay"
                                   loop="loop"
                                   preload="none"
                                   poster={data?.mobilePoster}
@@ -131,9 +135,9 @@ const PageContent = () => {
                               />
                               <template>
                                 <video
-                                  playsinline="true"
+                                  playsInline="true"
                                   muted="muted"
-                                  autoplay="autoplay"
+                                  autoPlay="autoPlay"
                                   loop="loop"
                                   preload="none"
                                   poster={data?.desktopPoster}
@@ -268,8 +272,8 @@ const PageContent = () => {
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                             d="M10 5L3 11.9999M3 11.9999L10 18.9999M3 11.9999H33.5"
                           ></path>
                         </svg>
@@ -318,8 +322,8 @@ const PageContent = () => {
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                             d="M26.5 5L33.5 11.9999M33.5 11.9999L26.5 18.9999M33.5 11.9999H3"
                           ></path>
                         </svg>
@@ -364,8 +368,8 @@ const PageContent = () => {
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            stroke-linecap="round"
-                            stroke-width="30"
+                            strokeLinecap="round"
+                            strokeWidth="30"
                             pathLength="1"
                             d="m -383.25 -6 c 55.25 -22 130.75 -33.5 293.25 -38 c 54.5 -0.5 195 -2.5 401 15"
                           />
@@ -404,402 +408,7 @@ const PageContent = () => {
                     --section-padding-bottom: 100px;
                 }
             </style> */}
-          <div class="section section--padding">
-            <div class="page-width relative">
-              <div class="title-wrapper leading-none gap-4 lg:gap-8 flex flex-col text-left md:items-end md:flex-row md:justify-between relative z-1">
-                <div class="grid gap-4">
-                  <h2 class="heading font-bold title-md">
-                    <split-words
-                      class="split-words flex flex-wrap"
-                      data-animate="fade-up-large"
-                    >
-                      Mixlist
-                    </split-words>
-                  </h2>
-                </div>
-                <div class="indicators hidden lg:flex gap-2d5">
-                  <button
-                    class="button button--secondary"
-                    type="button"
-                    is="previous-button"
-                    aria-controls="Slider-template--15951546220625__collection-list"
-                    aria-label="Previous"
-                    disabled
-                  >
-                    <span class="btn-fill" data-fill></span>
-                    <span class="btn-text">
-                      <svg
-                        class="icon icon-chevron-left icon-md transform"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M14 6L8 12L14 18"
-                        ></path>
-                      </svg>
-                    </span>
-                  </button>
-                  <button
-                    class="button button--secondary"
-                    type="button"
-                    is="next-button"
-                    aria-controls="Slider-template--15951546220625__collection-list"
-                    aria-label="Next"
-                  >
-                    <span class="btn-fill" data-fill></span>
-                    <span class="btn-text">
-                      <svg
-                        class="icon icon-chevron-right icon-md transform"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M10 6L16 12L10 18"
-                        ></path>
-                      </svg>
-                    </span>
-                  </button>
-                </div>
-                <p class="lg:hidden"></p>
-              </div>
-              <slider-element
-                id="Slider-template--15951546220625__collection-list"
-                class="grid slider slider--desktop slider--tablet"
-                selector=".card-grid>.card"
-              >
-                <motion-list class="card-grid card-grid--4 mobile:card-grid--1 grid">
-                  <div
-                    class="card media-card media-card--card media-card--overlap overflow-hidden"
-                    id="shopify-block-custom_box_D9iHh7"
-                  >
-                    {/* <style>
-                                    #shopify-block-custom_box_D9iHh7 {
-                                        --color-foreground: 255 255 255;
-                                        --color-border: var(--color-foreground)/ 0.1;
-                                        --color-border-dark: var(--color-foreground)/ 0.4;
-                                        --color-border-light: var(--color-foreground)/ 0.06;
-                                        --color-overlay: 0 0 0;
-                                        --overlay-opacity: 0.3;
-                                    }
-                                </style> */}
-                    <a
-                      href="mixlist.html"
-                      class="media-card__link grid w-full h-full relative"
-                    >
-                      <div class="media media--square relative overflow-hidden">
-                        <Image
-                          src={require("../../../assets/images/mixlist-all-recipes.jpg")}
-                          alt=""
-                          loading="lazy"
-                          is="lazy-image"
-                        />
-                      </div>
-                      <div class="media-card__content flex justify-between items-center gap-4 w-full">
-                        <div class="media-card__text shrink-1">
-                          <span class="heading reversed-link text-xl-3xl font-bold tracking-tighter leading-none relative">
-                            All Mixlist
-                            <small class="count font-medium absolute text-xs tracking-none whitespace-nowrap">
-                              10
-                            </small>
-                          </span>
-                          <p class="leading-none text-xs xl:text-sm">
-                            Check out all our Mixlists
-                          </p>
-                        </div>
-                        <svg
-                          class="icon icon-arrow-right icon-xs transform shrink-0"
-                          viewBox="0 0 21 20"
-                          stroke="currentColor"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334"
-                          ></path>
-                        </svg>
-                      </div>
-                    </a>
-                  </div>
-                  <div
-                    class="card media-card media-card--card overflow-hidden"
-                    id="shopify-block-collection_k8Ldjd"
-                  >
-                    <a
-                      href="collection-recipes.html"
-                      class="media-card__link flex flex-col w-full h-full relative"
-                    >
-                      <div class="media media--square relative overflow-hidden">
-                        <Image
-                          src={require("../../../assets/images/Mixlist_Cover_Earth_Day.jpg")}
-                          alt="Earth Day"
-                          loading="lazy"
-                          is="lazy-image"
-                        />
-                      </div>
-                      <div class="media-card__content flex justify-between items-center gap-4 w-full">
-                        <div class="media-card__text shrink-1 relative">
-                          <span class="heading reversed-link text-xl-3xl font-bold tracking-tighter leading-none relative">
-                            Earth Day
-                          </span>
-                          <p class="leading-none text-xs xl:text-sm">
-                            Sip sustainably with our eco-friendly cocktail
-                            selections
-                          </p>
-                          <small class="count font-medium absolute text-xs tracking-none whitespace-nowrap">
-                            10
-                          </small>
-                        </div>
-                        <svg
-                          class="icon icon-arrow-right icon-xs transform shrink-0"
-                          viewBox="0 0 21 20"
-                          stroke="currentColor"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334"
-                          ></path>
-                        </svg>
-                      </div>
-                    </a>
-                  </div>
-                  <div
-                    class="card media-card media-card--card overflow-hidden"
-                    id="shopify-block-collection_LRiL9B"
-                  >
-                    <a
-                      href="mixlist-details.html"
-                      class="media-card__link flex flex-col w-full h-full relative"
-                    >
-                      <div class="media media--square relative overflow-hidden">
-                        <Image
-                          src={require("../../../assets/images/Mixlist_Cover_Pitch_Perfect_Mixology.jpg")}
-                          alt="Pitch Perfect Mixology"
-                          loading="lazy"
-                          is="lazy-image"
-                        />
-                      </div>
-                      <div class="media-card__content flex justify-between items-center gap-4 w-full">
-                        <div class="media-card__text shrink-1 relative">
-                          <span class="heading reversed-link text-xl-3xl font-bold tracking-tighter leading-none relative">
-                            Pitch Perfect Mixology
-                          </span>
-                          <p class="leading-none text-xs xl:text-sm">
-                            Hit a home run with our all-star cocktail recipes
-                          </p>
-                          <small class="count font-medium absolute text-xs tracking-none whitespace-nowrap">
-                            10
-                          </small>
-                        </div>
-                        <svg
-                          class="icon icon-arrow-right icon-xs transform shrink-0"
-                          viewBox="0 0 21 20"
-                          stroke="currentColor"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334"
-                          ></path>
-                        </svg>
-                      </div>
-                    </a>
-                  </div>
-                  <div
-                    class="card media-card media-card--card overflow-hidden"
-                    id="shopify-block-collection_PXDUyW"
-                  >
-                    <a
-                      href="mixlist-details.html"
-                      class="media-card__link flex flex-col w-full h-full relative"
-                    >
-                      <div class="media media--square relative overflow-hidden">
-                        <Image
-                          src={require("../../../assets/images/Mixlist_Cover_Ice_Cube.jpg")}
-                          alt="Ice Cube Series"
-                          loading="lazy"
-                          is="lazy-image"
-                        />
-                      </div>
-                      <div class="media-card__content flex justify-between items-center gap-4 w-full">
-                        <div class="media-card__text shrink-1 relative">
-                          <span class="heading reversed-link text-xl-3xl font-bold tracking-tighter leading-none relative">
-                            Ice Cube Series
-                          </span>
-                          <p class="leading-none text-xs xl:text-sm">
-                            Chill out with our Ice Cube Series
-                          </p>
-                          <small class="count font-medium absolute text-xs tracking-none whitespace-nowrap">
-                            9
-                          </small>
-                        </div>
-                        <svg
-                          class="icon icon-arrow-right icon-xs transform shrink-0"
-                          viewBox="0 0 21 20"
-                          stroke="currentColor"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334"
-                          ></path>
-                        </svg>
-                      </div>
-                    </a>
-                  </div>
-                  <div
-                    class="card media-card media-card--card overflow-hidden"
-                    id="shopify-block-collection_bJX3yj"
-                  >
-                    <a
-                      href="mixlist-details.html"
-                      class="media-card__link flex flex-col w-full h-full relative"
-                    >
-                      <div class="media media--square relative overflow-hidden">
-                        <Image
-                          src={require("../../../assets/images/Mixlist_Cover_Mimosa_Series.jpg")}
-                          alt="Mimosa Series"
-                          loading="lazy"
-                          is="lazy-image"
-                        />
-                      </div>
-                      <div class="media-card__content flex justify-between items-center gap-4 w-full">
-                        <div class="media-card__text shrink-1 relative">
-                          <span class="heading reversed-link text-xl-3xl font-bold tracking-tighter leading-none relative">
-                            Mimosa Series
-                          </span>
-                          <p class="leading-none text-xs xl:text-sm">
-                            Brunch beautifully with our Mimosa Series
-                          </p>
-                          <small class="count font-medium absolute text-xs tracking-none whitespace-nowrap">
-                            10
-                          </small>
-                        </div>
-                        <svg
-                          class="icon icon-arrow-right icon-xs transform shrink-0"
-                          viewBox="0 0 21 20"
-                          stroke="currentColor"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334"
-                          ></path>
-                        </svg>
-                      </div>
-                    </a>
-                  </div>
-                  <div
-                    class="card media-card media-card--card overflow-hidden"
-                    id="shopify-block-collection_dmfgmG"
-                  >
-                    <a
-                      href="mixlist-details.html"
-                      class="media-card__link flex flex-col w-full h-full relative"
-                    >
-                      <div class="media media--square relative overflow-hidden">
-                        <Image
-                          src={require("../../../assets/images/Mixlist_Cover_Mothers_Day.jpg")}
-                          alt="Mother’s Day"
-                          loading="lazy"
-                          is="lazy-image"
-                        />
-                      </div>
-                      <div class="media-card__content flex justify-between items-center gap-4 w-full">
-                        <div class="media-card__text shrink-1 relative">
-                          <span class="heading reversed-link text-xl-3xl font-bold tracking-tighter leading-none relative">
-                            Mother’s Day
-                          </span>
-                          <p class="leading-none text-xs xl:text-sm">
-                            Cheers to Mom with our Mother’s Day Mixlist
-                          </p>
-                          <small class="count font-medium absolute text-xs tracking-none whitespace-nowrap">
-                            7
-                          </small>
-                        </div>
-                        <svg
-                          class="icon icon-arrow-right icon-xs transform shrink-0"
-                          viewBox="0 0 21 20"
-                          stroke="currentColor"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334"
-                          ></path>
-                        </svg>
-                      </div>
-                    </a>
-                  </div>
-                  <div
-                    class="card media-card media-card--card overflow-hidden"
-                    id="shopify-block-collection_LPgnmB"
-                  >
-                    <a
-                      href="mixlist-details.html"
-                      class="media-card__link flex flex-col w-full h-full relative"
-                    >
-                      <div class="media media--square relative overflow-hidden">
-                        <Image
-                          src={require("../../../assets/images/Mixlist_Cover_Memorial.jpg")}
-                          alt="Memorial Day"
-                          loading="lazy"
-                          is="lazy-image"
-                        />
-                      </div>
-                      <div class="media-card__content flex justify-between items-center gap-4 w-full">
-                        <div class="media-card__text shrink-1 relative">
-                          <span class="heading reversed-link text-xl-3xl font-bold tracking-tighter leading-none relative">
-                            Memorial Day
-                          </span>
-                          <p class="leading-none text-xs xl:text-sm">
-                            Salute to service with our Memorial Day Mixlist
-                          </p>
-                          <small class="count font-medium absolute text-xs tracking-none whitespace-nowrap">
-                            10
-                          </small>
-                        </div>
-                        <svg
-                          class="icon icon-arrow-right icon-xs transform shrink-0"
-                          viewBox="0 0 21 20"
-                          stroke="currentColor"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334"
-                          ></path>
-                        </svg>
-                      </div>
-                    </a>
-                  </div>
-                </motion-list>
-              </slider-element>
-              <p class="hidden lg:block"></p>
-            </div>
-          </div>
+          <MixlistSlider />
         </div>
         <div
           id="shopify-section-template--15951546220625__rich_text_CeG4L8"
@@ -834,8 +443,8 @@ const PageContent = () => {
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            stroke-linecap="round"
-                            stroke-width="30"
+                            strokeLinecap="round"
+                            strokeWidth="30"
                             pathLength="1"
                             d="m -383.25 -6 c 55.25 -22 130.75 -33.5 293.25 -38 c 54.5 -0.5 195 -2.5 401 15"
                           />
@@ -860,8 +469,8 @@ const PageContent = () => {
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                             d="M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334"
                           ></path>
                         </svg>
@@ -914,7 +523,7 @@ const PageContent = () => {
               <div class="video-hero banner media--adapt mobile:media--400px relative">
                 <video-media
                   class="media deferred-media block banner__media media media--height w-full h-full relative"
-                  autoplay
+                  autoPlay
                 >
                   <Image
                     src={require("../../../assets/images/banner-future-poster-desktop.jpg")}
@@ -927,9 +536,9 @@ const PageContent = () => {
 
                   <template>
                     <video
-                      playsinline="true"
+                      playsInline="true"
                       muted="muted"
-                      autoplay="autoplay"
+                      autoPlay="autoPlay"
                       loop="loop"
                       preload="none"
                       poster="assets/images/banner-future-poster-desktop.jpg"
@@ -967,13 +576,13 @@ const PageContent = () => {
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-width="6"
+                          strokeLinecap="round"
+                          strokeWidth="6"
                           d="M9 4V32"
                         ></path>
                         <path
-                          stroke-linecap="round"
-                          stroke-width="6"
+                          strokeLinecap="round"
+                          strokeWidth="6"
                           d="M27 4V32"
                         ></path>
                       </svg>
@@ -1015,8 +624,8 @@ const PageContent = () => {
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
                               d="M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334"
                             ></path>
                           </svg>
@@ -1033,7 +642,7 @@ const PageContent = () => {
           id="shopify-section-template--15951546220625__featured-product"
           class="shopify-section"
         >
-          <script src="assets/js/product-popup.js" defer="defer"></script>
+          {/* <script src="assets/js/product-popup.js" defer="defer"></script> */}
           {/* <style>
                 #shopify-section-template--15951546220625__featured-product {
                     --section-padding-top: 120px;
@@ -1085,7 +694,7 @@ const PageContent = () => {
                               class="absolute top-0 left-0 w-full h-full flex items-center justify-center"
                               is="media-lightbox-button"
                               aria-label="Open media 1 in modal"
-                              tabindex="-1"
+                              tabIndex="-1"
                             >
                               <svg
                                 class="icon icon-zoom icon-xs lg:hidden"
@@ -1095,8 +704,8 @@ const PageContent = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
                                   d="M3 3V9M3 3H9M3 3L9 9M21 21V15M21 21H15M21 21L15 15"
                                 ></path>
                               </svg>
@@ -1123,7 +732,7 @@ const PageContent = () => {
                               class="absolute top-0 left-0 w-full h-full flex items-center justify-center"
                               is="media-lightbox-button"
                               aria-label="Open media 2 in modal"
-                              tabindex="-1"
+                              tabIndex="-1"
                             >
                               <svg
                                 class="icon icon-zoom icon-xs lg:hidden"
@@ -1133,8 +742,8 @@ const PageContent = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
                                   d="M3 3V9M3 3H9M3 3L9 9M21 21V15M21 21H15M21 21L15 15"
                                 ></path>
                               </svg>
@@ -1161,7 +770,7 @@ const PageContent = () => {
                               class="absolute top-0 left-0 w-full h-full flex items-center justify-center"
                               is="media-lightbox-button"
                               aria-label="Open media 3 in modal"
-                              tabindex="-1"
+                              tabIndex="-1"
                             >
                               <svg
                                 class="icon icon-zoom icon-xs lg:hidden"
@@ -1171,8 +780,8 @@ const PageContent = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
                                   d="M3 3V9M3 3H9M3 3L9 9M21 21V15M21 21H15M21 21L15 15"
                                 ></path>
                               </svg>
@@ -1199,7 +808,7 @@ const PageContent = () => {
                               class="absolute top-0 left-0 w-full h-full flex items-center justify-center"
                               is="media-lightbox-button"
                               aria-label="Open media 4 in modal"
-                              tabindex="-1"
+                              tabIndex="-1"
                             >
                               <svg
                                 class="icon icon-zoom icon-xs lg:hidden"
@@ -1209,8 +818,8 @@ const PageContent = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
                                   d="M3 3V9M3 3H9M3 3L9 9M21 21V15M21 21H15M21 21L15 15"
                                 ></path>
                               </svg>
@@ -1237,7 +846,7 @@ const PageContent = () => {
                               class="absolute top-0 left-0 w-full h-full flex items-center justify-center"
                               is="media-lightbox-button"
                               aria-label="Open media 5 in modal"
-                              tabindex="-1"
+                              tabIndex="-1"
                             >
                               <svg
                                 class="icon icon-zoom icon-xs lg:hidden"
@@ -1247,8 +856,8 @@ const PageContent = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
                                   d="M3 3V9M3 3H9M3 3L9 9M21 21V15M21 21H15M21 21L15 15"
                                 ></path>
                               </svg>
@@ -1275,7 +884,7 @@ const PageContent = () => {
                               class="absolute top-0 left-0 w-full h-full flex items-center justify-center"
                               is="media-lightbox-button"
                               aria-label="Open media 6 in modal"
-                              tabindex="-1"
+                              tabIndex="-1"
                             >
                               <svg
                                 class="icon icon-zoom icon-xs lg:hidden"
@@ -1285,8 +894,8 @@ const PageContent = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
                                   d="M3 3V9M3 3H9M3 3L9 9M21 21V15M21 21H15M21 21L15 15"
                                 ></path>
                               </svg>
@@ -1312,7 +921,7 @@ const PageContent = () => {
                               class="absolute top-0 left-0 w-full h-full flex items-center justify-center"
                               is="media-lightbox-button"
                               aria-label="Open media 7 in modal"
-                              tabindex="-1"
+                              tabIndex="-1"
                             >
                               <svg
                                 class="icon icon-zoom icon-xs lg:hidden"
@@ -1322,8 +931,8 @@ const PageContent = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
                                   d="M3 3V9M3 3H9M3 3L9 9M21 21V15M21 21H15M21 21L15 15"
                                 ></path>
                               </svg>
@@ -1351,7 +960,7 @@ const PageContent = () => {
                               class="absolute top-0 left-0 w-full h-full flex items-center justify-center"
                               is="media-lightbox-button"
                               aria-label="Open media 8 in modal"
-                              tabindex="-1"
+                              tabIndex="-1"
                             >
                               <svg
                                 class="icon icon-zoom icon-xs lg:hidden"
@@ -1361,8 +970,8 @@ const PageContent = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
                                   d="M3 3V9M3 3H9M3 3L9 9M21 21V15M21 21H15M21 21L15 15"
                                 ></path>
                               </svg>
@@ -1389,7 +998,7 @@ const PageContent = () => {
                               class="absolute top-0 left-0 w-full h-full flex items-center justify-center"
                               is="media-lightbox-button"
                               aria-label="Open media 9 in modal"
-                              tabindex="-1"
+                              tabIndex="-1"
                             >
                               <svg
                                 class="icon icon-zoom icon-xs lg:hidden"
@@ -1399,8 +1008,8 @@ const PageContent = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
                                   d="M3 3V9M3 3H9M3 3L9 9M21 21V15M21 21H15M21 21L15 15"
                                 ></path>
                               </svg>
@@ -1427,7 +1036,7 @@ const PageContent = () => {
                               class="absolute top-0 left-0 w-full h-full flex items-center justify-center"
                               is="media-lightbox-button"
                               aria-label="Open media 10 in modal"
-                              tabindex="-1"
+                              tabIndex="-1"
                             >
                               <svg
                                 class="icon icon-zoom icon-xs lg:hidden"
@@ -1437,8 +1046,8 @@ const PageContent = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
                                   d="M3 3V9M3 3H9M3 3L9 9M21 21V15M21 21H15M21 21L15 15"
                                 ></path>
                               </svg>
@@ -1465,7 +1074,7 @@ const PageContent = () => {
                               class="absolute top-0 left-0 w-full h-full flex items-center justify-center"
                               is="media-lightbox-button"
                               aria-label="Open media 11 in modal"
-                              tabindex="-1"
+                              tabIndex="-1"
                             >
                               <svg
                                 class="icon icon-zoom icon-xs lg:hidden"
@@ -1475,8 +1084,8 @@ const PageContent = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
                                   d="M3 3V9M3 3H9M3 3L9 9M21 21V15M21 21H15M21 21L15 15"
                                 ></path>
                               </svg>
@@ -1503,8 +1112,8 @@ const PageContent = () => {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                                 d="M14 6L8 12L14 18"
                               ></path>
                             </svg>
@@ -1527,8 +1136,8 @@ const PageContent = () => {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                                 d="M10 6L16 12L10 18"
                               ></path>
                             </svg>
@@ -1735,8 +1344,8 @@ const PageContent = () => {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                                 d="M6 15L12 9L18 15"
                               ></path>
                             </svg>
@@ -1750,8 +1359,8 @@ const PageContent = () => {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                                 d="M6 9L12 15L18 9"
                               ></path>
                             </svg>
@@ -1765,8 +1374,8 @@ const PageContent = () => {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                                 d="M14 6L8 12L14 18"
                               ></path>
                             </svg>
@@ -1780,8 +1389,8 @@ const PageContent = () => {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                                 d="M10 6L16 12L10 18"
                               ></path>
                             </svg>
@@ -1806,7 +1415,7 @@ const PageContent = () => {
                                             s svg {
                                                 width: 24px;
                                                 height: auto;
-                                                stroke-width: var(--icon-weight);
+                                                strokeWidth: var(--icon-weight);
                                             }
 
                                             s span {
@@ -1920,9 +1529,9 @@ const PageContent = () => {
                     method="post"
                     action="/cart/add"
                     id="ProductFormInstallment-template--15951546220625__featured-product"
-                    accept-charset="UTF-8"
+                    acceptCharset="UTF-8"
                     class="installment text-sm leading-tight"
-                    enctype="multipart/form-data"
+                    encType="multipart/form-data"
                   >
                     <input type="hidden" name="form_type" value="product" />
                     <input type="hidden" name="utf8" value="✓" />
@@ -2059,8 +1668,8 @@ const PageContent = () => {
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                             d="M6 15L12 9L18 15"
                           ></path>
                         </svg>
@@ -2090,8 +1699,8 @@ const PageContent = () => {
                           cx="8"
                           cy="8"
                           r="6.5"
-                          stroke-opacity="0.3"
-                          stroke-width="3"
+                          strokeOpacity="0.3"
+                          strokeWidth="3"
                         ></circle>
                       </svg>
                       <span class="text-sm font-medium leading-tight">
@@ -2105,9 +1714,9 @@ const PageContent = () => {
                       method="post"
                       action="/cart/add"
                       id="ProductForm-template--15951546220625__featured-product"
-                      accept-charset="UTF-8"
+                      acceptCharset="UTF-8"
                       class="product-form grid gap-2"
-                      enctype="multipart/form-data"
+                      encType="multipart/form-data"
                       novalidate="novalidate"
                       data-type="add-to-cart-form"
                       data-hide-errors="false"
@@ -2273,8 +1882,8 @@ const PageContent = () => {
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="m7.218 8.527 5.564-2.782M7.218 11.39l5.564 2.783m-8.509-.9a3.273 3.273 0 1 0 0-6.546 3.273 3.273 0 0 0 0 6.546Zm11.454-5.728a3.273 3.273 0 1 0 0-6.545 3.273 3.273 0 0 0 0 6.545Zm0 11.455a3.273 3.273 0 1 0 0-6.545 3.273 3.273 0 0 0 0 6.545Z"
                         ></path>
                       </svg>
@@ -2324,8 +1933,8 @@ const PageContent = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
                                   d="M5 15L15 5M5 5L15 15"
                                 ></path>
                               </svg>
@@ -2337,8 +1946,8 @@ const PageContent = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
                                   d="M0.7,9.9C0.5,5.2,4.1,1.2,8.5,1c4.7-0.3,8.9,3.8,8.8,8.8"
                                 ></path>
                               </svg>
@@ -2467,8 +2076,8 @@ const PageContent = () => {
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M9.167 9.625v-.458a1.833 1.833 0 1 1 3.666 0v.11a1.94 1.94 0 0 1-.57 1.376L11 11.917m.458 2.75a.458.458 0 0 1-.916 0m.916 0a.458.458 0 0 0-.916 0m.916 0h-.916M20.167 11a9.167 9.167 0 1 1-18.334 0 9.167 9.167 0 0 1 18.334 0Z"
                         ></path>
                       </svg>
@@ -2480,7 +2089,10 @@ const PageContent = () => {
                       </a>
                     </div>
                   </div>
-                  <Link  class="product__more flex items-center justify-between" href="/product-detail">
+                  <Link
+                    class="product__more flex items-center justify-between"
+                    href="/product-detail"
+                  >
                     <span class="text-sm-base font-medium leading-none">
                       View full details
                     </span>
@@ -2492,12 +2104,12 @@ const PageContent = () => {
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334"
                       ></path>
                     </svg>
-                    </Link>
+                  </Link>
                 </animate-element>
               </div>
             </div>
@@ -2630,7 +2242,7 @@ const PageContent = () => {
                   type="button"
                   class="comparison__button absolute z-1"
                   aria-label="Drag"
-                  tabindex="-1"
+                  tabIndex="-1"
                 >
                   <span class="absolute flex items-center justify-center pointer-events-none">
                     <svg
@@ -2641,18 +2253,18 @@ const PageContent = () => {
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-width="1.5"
+                        strokeLinecap="round"
+                        strokeWidth="1.5"
                         d="M1 1L0.999999 16"
                       ></path>
                       <path
-                        stroke-linecap="round"
-                        stroke-width="1.5"
+                        strokeLinecap="round"
+                        strokeWidth="1.5"
                         d="M6 1L6 16"
                       ></path>
                       <path
-                        stroke-linecap="round"
-                        stroke-width="1.5"
+                        strokeLinecap="round"
+                        strokeWidth="1.5"
                         d="M11 1L11 16"
                       ></path>
                     </svg>
@@ -2806,8 +2418,8 @@ const PageContent = () => {
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
                               d="M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334"
                             ></path>
                           </svg>
@@ -2866,7 +2478,7 @@ const PageContent = () => {
                     <div class="media media--height block w-full h-full relative overflow-hidden">
                       <video-media
                         class="media deferred-media block media media--height block w-full h-full relative overflow-hidden"
-                        autoplay
+                        autoPlay
                       >
                         <Image
                           src={require("../../../assets/images/bathtub-gin-video-banner-desktop.jpg")}
@@ -2877,9 +2489,9 @@ const PageContent = () => {
                         />
                         <template>
                           <video
-                            playsinline="true"
+                            playsInline="true"
                             muted="muted"
-                            autoplay="autoplay"
+                            autoPlay="autoPlay"
                             loop="loop"
                             preload="none"
                             poster="assets/images/bathtub-gin-video-banner-desktop.jpg"
@@ -2905,7 +2517,7 @@ const PageContent = () => {
                       <a
                         class="block relative media media--square overflow-hidden"
                         href="recipe-details.html"
-                        tabindex="-1"
+                        tabIndex="-1"
                       >
                         <Image
                           src={require("../../../assets/images/Product-The-Passion-of-the-Negroni.jpg")}
@@ -2935,7 +2547,7 @@ const PageContent = () => {
                       <a
                         class="block relative media media--square overflow-hidden"
                         href="recipe-details.html"
-                        tabindex="-1"
+                        tabIndex="-1"
                       >
                         <Image
                           src={require("../../../assets/images/Product-Espresso-Martini.jpg")}
@@ -3186,8 +2798,8 @@ const PageContent = () => {
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M14 6L8 12L14 18"
                         ></path>
                       </svg>
@@ -3210,8 +2822,8 @@ const PageContent = () => {
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M10 6L16 12L10 18"
                         ></path>
                       </svg>
@@ -3241,8 +2853,8 @@ const PageContent = () => {
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M14 6L8 12L14 18"
                         ></path>
                       </svg>
@@ -3265,8 +2877,8 @@ const PageContent = () => {
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M10 6L16 12L10 18"
                         ></path>
                       </svg>
@@ -3296,8 +2908,8 @@ const PageContent = () => {
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M14 6L8 12L14 18"
                         ></path>
                       </svg>
@@ -3320,8 +2932,8 @@ const PageContent = () => {
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M10 6L16 12L10 18"
                         ></path>
                       </svg>
@@ -3342,7 +2954,7 @@ const PageContent = () => {
                         <a
                           class="block relative media media--square overflow-hidden"
                           href="recipe-details.html"
-                          tabindex="-1"
+                          tabIndex="-1"
                         >
                           <Image
                             src={require("../../../assets/images/product-Watermelon_Wave_Smash.jpg")}
@@ -3372,7 +2984,7 @@ const PageContent = () => {
                         <a
                           class="block relative media media--square overflow-hidden"
                           href="recipe-details.html"
-                          tabindex="-1"
+                          tabIndex="-1"
                         >
                           <Image
                             src={require("../../../assets/images/product-End-Zone-Punch.jpg")}
@@ -3402,7 +3014,7 @@ const PageContent = () => {
                         <a
                           class="block relative media media--square overflow-hidden"
                           href="recipe-details.html"
-                          tabindex="-1"
+                          tabIndex="-1"
                         >
                           <Image
                             src={require("../../../assets/images/product-Coastal_Breeze_Cooler.jpg")}
@@ -3432,7 +3044,7 @@ const PageContent = () => {
                         <a
                           class="block relative media media--square overflow-hidden"
                           href="recipe-details.html"
-                          tabindex="-1"
+                          tabIndex="-1"
                         >
                           <Image
                             src={require("../../../assets/images/product-Pineapple_Coconut_Paloma.jpg")}
@@ -3472,7 +3084,7 @@ const PageContent = () => {
                         <a
                           class="block relative media media--square overflow-hidden"
                           href="recipe-details.html"
-                          tabindex="-1"
+                          tabIndex="-1"
                         >
                           <Image
                             src={require("../../../assets/images/product-Mango_Tango_Margarita.jpg")}
@@ -3502,7 +3114,7 @@ const PageContent = () => {
                         <a
                           class="block relative media media--square overflow-hidden"
                           href="recipe-details.html"
-                          tabindex="-1"
+                          tabIndex="-1"
                         >
                           <Image
                             src={require("../../../assets/images/product-Firework_Fizz.jpg")}
@@ -3532,7 +3144,7 @@ const PageContent = () => {
                         <a
                           class="block relative media media--square overflow-hidden"
                           href="recipe-details.html"
-                          tabindex="-1"
+                          tabIndex="-1"
                         >
                           <Image
                             src={require("../../../assets/images/product-Cardamom_And_Rosemary_Gin_Fizz.jpg")}
@@ -3570,7 +3182,7 @@ const PageContent = () => {
                         <a
                           class="block relative media media--square overflow-hidden"
                           href="recipe-details.html"
-                          tabindex="-1"
+                          tabIndex="-1"
                         >
                           <Image
                             src={require("../../../assets/images/product-Passionfruit_Fizz.jpg")}
@@ -3610,7 +3222,7 @@ const PageContent = () => {
                         <a
                           class="block relative media media--square overflow-hidden"
                           href="recipe-details.html"
-                          tabindex="-1"
+                          tabIndex="-1"
                         >
                           <Image
                             src={require("../../../assets/images/product-Tropical_Pineapple_Fusion.jpg")}
@@ -3640,7 +3252,7 @@ const PageContent = () => {
                         <a
                           class="block relative media media--square overflow-hidden"
                           href="recipe-details.html"
-                          tabindex="-1"
+                          tabIndex="-1"
                         >
                           <Image
                             src={require("../../../assets/images/product-Lemon_Zest.jpg")}
@@ -3670,7 +3282,7 @@ const PageContent = () => {
                         <a
                           class="block relative media media--square overflow-hidden"
                           href="recipe-details.html"
-                          tabindex="-1"
+                          tabIndex="-1"
                         >
                           <Image
                             src={require("../../../assets/images/product-Rose_infused_Rose.jpg")}
@@ -3700,7 +3312,7 @@ const PageContent = () => {
                         <a
                           class="block relative media media--square overflow-hidden"
                           href="recipe-details.html"
-                          tabindex="-1"
+                          tabIndex="-1"
                         >
                           <Image
                             src={require("../../../assets/images/product-Botanical_Bliss_Fizz.jpg")}
@@ -4323,13 +3935,13 @@ const PageContent = () => {
         >
           <link
             rel="stylesheet"
-            href="assets/blog.css"
+            href="../../assets/blog.css"
             media="print"
-            onload="this.media='all'"
+            onLoad="this.media='all'"
           />
           <noscript>
             <link
-              href="assets/blog.css"
+              href="../../assets/blog.css"
               rel="stylesheet"
               type="text/css"
               media="all"
@@ -4364,8 +3976,8 @@ const PageContent = () => {
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M18 12V2L15.2874 3.20562C14.6759 3.47739 14.3701 3.61328 14.0607 3.64727C13.7214 3.68455 13.3782 3.63437 13.0638 3.50149C12.777 3.38032 12.523 3.16258 12.0149 2.7271V2.7271C11.3403 2.14881 11.0029 1.85966 10.6296 1.73584C10.2208 1.60026 9.77918 1.60026 9.3704 1.73584C8.99706 1.85966 8.65972 2.14881 7.98505 2.7271V2.7271C7.47699 3.16258 7.22295 3.38032 6.93623 3.50149C6.6218 3.63437 6.2786 3.68455 5.93929 3.64727C5.62988 3.61328 5.32414 3.47739 4.71265 3.20562L2 2V15.6C2 17.8402 2 18.9603 2.43597 19.816C2.81947 20.5686 3.43139 21.1805 4.18404 21.564C5.03968 22 6.15979 22 8.4 22H20M18 12H18.8C19.9201 12 20.4802 12 20.908 12.218C21.2843 12.4097 21.5903 12.7157 21.782 13.092C22 13.5198 22 14.0799 22 15.2V20C22 21.1046 21.1046 22 20 22V22C18.8954 22 18 21.1046 18 20V12ZM7 17H13M7 9H11M7 13H13"
                         ></path>
                       </svg>
@@ -4382,7 +3994,7 @@ const PageContent = () => {
                         href="#"
                         class="article-card__link block relative media media--landscape"
                         aria-label="Elevate Your Cocktail Game with the New Barsys App – Launching Soon!"
-                        tabindex="-1"
+                        tabIndex="-1"
                       >
                         <Image
                           src={require("../../../assets/images/Blog_cover_Barsys_App_Launch.jpg")}
@@ -4405,12 +4017,12 @@ const PageContent = () => {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                                 d="M5.33325 0.666668V3.40544M10.6666 0.666668V3.40544M14.4999 6.33333H1.49994M6.93325 14.6667H9.06659C11.0268 14.6667 12.0069 14.6667 12.7556 14.2852C13.4141 13.9496 13.9496 13.4142 14.2851 12.7556C14.6666 12.0069 14.6666 11.0269 14.6666 9.06667V7.93334C14.6666 5.97315 14.6666 4.99306 14.2851 4.24437C13.9496 3.5858 13.4141 3.05037 12.7556 2.71481C12.0069 2.33333 11.0268 2.33333 9.06659 2.33333H6.93325C4.97307 2.33333 3.99298 2.33333 3.24429 2.71481C2.58572 3.05037 2.05029 3.5858 1.71473 4.24437C1.33325 4.99306 1.33325 5.97315 1.33325 7.93333V9.06667C1.33325 11.0269 1.33325 12.0069 1.71473 12.7556C2.05029 13.4142 2.58572 13.9496 3.24429 14.2852C3.99298 14.6667 4.97307 14.6667 6.93325 14.6667Z"
                               ></path>
                             </svg>
-                            <time datetime="2024-05-01T09:55:02Z">
+                            <time dateTime="2024-05-01T09:55:02Z">
                               May 01, 2024
                             </time>
                           </li>
@@ -4423,8 +4035,8 @@ const PageContent = () => {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                                 d="M5.33325 6.66665H10.6666M5.33325 9.33331H7.99992M14.6666 7.99998C14.6666 11.6819 11.6818 14.6666 7.99992 14.6666C7.24034 14.6666 6.58895 14.5585 5.9841 14.3421C5.41245 14.1376 5.12661 14.0354 5.01693 14.0096C4.00499 13.7716 3.58519 14.4651 2.71302 14.6105C2.28464 14.6818 1.90348 14.3311 1.93903 13.8983C1.97011 13.5198 2.23184 13.1619 2.33628 12.7985C2.5534 12.0429 2.25878 11.4701 1.94752 10.7982C1.55335 9.94729 1.33325 8.99931 1.33325 7.99998C1.33325 4.31808 4.31802 1.33331 7.99992 1.33331C11.6818 1.33331 14.6666 4.31808 14.6666 7.99998Z"
                               ></path>
                             </svg>
@@ -4468,7 +4080,7 @@ const PageContent = () => {
                         href="#"
                         class="article-card__link block relative media media--landscape"
                         aria-label="Spooky Sips: Unleash the Halloween Spirit with These Ghoulishly Good Cocktails!"
-                        tabindex="-1"
+                        tabIndex="-1"
                       >
                         <Image
                           src={require("../../../assets/images/Blog_Cover_Spooky_Sips.png")}
@@ -4491,12 +4103,12 @@ const PageContent = () => {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                                 d="M5.33325 0.666668V3.40544M10.6666 0.666668V3.40544M14.4999 6.33333H1.49994M6.93325 14.6667H9.06659C11.0268 14.6667 12.0069 14.6667 12.7556 14.2852C13.4141 13.9496 13.9496 13.4142 14.2851 12.7556C14.6666 12.0069 14.6666 11.0269 14.6666 9.06667V7.93334C14.6666 5.97315 14.6666 4.99306 14.2851 4.24437C13.9496 3.5858 13.4141 3.05037 12.7556 2.71481C12.0069 2.33333 11.0268 2.33333 9.06659 2.33333H6.93325C4.97307 2.33333 3.99298 2.33333 3.24429 2.71481C2.58572 3.05037 2.05029 3.5858 1.71473 4.24437C1.33325 4.99306 1.33325 5.97315 1.33325 7.93333V9.06667C1.33325 11.0269 1.33325 12.0069 1.71473 12.7556C2.05029 13.4142 2.58572 13.9496 3.24429 14.2852C3.99298 14.6667 4.97307 14.6667 6.93325 14.6667Z"
                               ></path>
                             </svg>
-                            <time datetime="2023-10-23T22:23:46Z">
+                            <time dateTime="2023-10-23T22:23:46Z">
                               Oct 23, 2023
                             </time>
                           </li>
@@ -4509,8 +4121,8 @@ const PageContent = () => {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                                 d="M5.33325 6.66665H10.6666M5.33325 9.33331H7.99992M14.6666 7.99998C14.6666 11.6819 11.6818 14.6666 7.99992 14.6666C7.24034 14.6666 6.58895 14.5585 5.9841 14.3421C5.41245 14.1376 5.12661 14.0354 5.01693 14.0096C4.00499 13.7716 3.58519 14.4651 2.71302 14.6105C2.28464 14.6818 1.90348 14.3311 1.93903 13.8983C1.97011 13.5198 2.23184 13.1619 2.33628 12.7985C2.5534 12.0429 2.25878 11.4701 1.94752 10.7982C1.55335 9.94729 1.33325 8.99931 1.33325 7.99998C1.33325 4.31808 4.31802 1.33331 7.99992 1.33331C11.6818 1.33331 14.6666 4.31808 14.6666 7.99998Z"
                               ></path>
                             </svg>
@@ -4553,7 +4165,7 @@ const PageContent = () => {
                         href="#"
                         class="article-card__link block relative media media--landscape"
                         aria-label="Pumpkin Patch Party: The Ultimate Autumn Cocktail Mixlist"
-                        tabindex="-1"
+                        tabIndex="-1"
                       >
                         <Image
                           src={require("../../../assets/images/Blog_cover_Pumpkin_Patch_Party.png")}
@@ -4576,12 +4188,12 @@ const PageContent = () => {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                                 d="M5.33325 0.666668V3.40544M10.6666 0.666668V3.40544M14.4999 6.33333H1.49994M6.93325 14.6667H9.06659C11.0268 14.6667 12.0069 14.6667 12.7556 14.2852C13.4141 13.9496 13.9496 13.4142 14.2851 12.7556C14.6666 12.0069 14.6666 11.0269 14.6666 9.06667V7.93334C14.6666 5.97315 14.6666 4.99306 14.2851 4.24437C13.9496 3.5858 13.4141 3.05037 12.7556 2.71481C12.0069 2.33333 11.0268 2.33333 9.06659 2.33333H6.93325C4.97307 2.33333 3.99298 2.33333 3.24429 2.71481C2.58572 3.05037 2.05029 3.5858 1.71473 4.24437C1.33325 4.99306 1.33325 5.97315 1.33325 7.93333V9.06667C1.33325 11.0269 1.33325 12.0069 1.71473 12.7556C2.05029 13.4142 2.58572 13.9496 3.24429 14.2852C3.99298 14.6667 4.97307 14.6667 6.93325 14.6667Z"
                               ></path>
                             </svg>
-                            <time datetime="2023-10-23T21:58:18Z">
+                            <time dateTime="2023-10-23T21:58:18Z">
                               Oct 23, 2023
                             </time>
                           </li>
@@ -4594,8 +4206,8 @@ const PageContent = () => {
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                                 d="M5.33325 6.66665H10.6666M5.33325 9.33331H7.99992M14.6666 7.99998C14.6666 11.6819 11.6818 14.6666 7.99992 14.6666C7.24034 14.6666 6.58895 14.5585 5.9841 14.3421C5.41245 14.1376 5.12661 14.0354 5.01693 14.0096C4.00499 13.7716 3.58519 14.4651 2.71302 14.6105C2.28464 14.6818 1.90348 14.3311 1.93903 13.8983C1.97011 13.5198 2.23184 13.1619 2.33628 12.7985C2.5534 12.0429 2.25878 11.4701 1.94752 10.7982C1.55335 9.94729 1.33325 8.99931 1.33325 7.99998C1.33325 4.31808 4.31802 1.33331 7.99992 1.33331C11.6818 1.33331 14.6666 4.31808 14.6666 7.99998Z"
                               ></path>
                             </svg>
