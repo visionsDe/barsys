@@ -2472,12 +2472,12 @@ const PageContent = () => {
                           d="M9.167 9.625v-.458a1.833 1.833 0 1 1 3.666 0v.11a1.94 1.94 0 0 1-.57 1.376L11 11.917m.458 2.75a.458.458 0 0 1-.916 0m.916 0a.458.458 0 0 0-.916 0m.916 0h-.916M20.167 11a9.167 9.167 0 1 1-18.334 0 9.167 9.167 0 0 1 18.334 0Z"
                         ></path>
                       </svg>
-                      <a
+                      <Link
                         class="link text-sm leading-tight cursor-pointer"
-                        href="faqs.html"
+                        href="faqs"
                       >
                         Need help?
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <Link  class="product__more flex items-center justify-between" href="/product-detail">
@@ -4349,9 +4349,9 @@ const PageContent = () => {
                   </h2>
                 </div>
                 <p>
-                  <a
+                  <Link
                     class="button button--secondary icon-with-text"
-                    href="blog-list.html"
+                    href="blogs"
                     is="hover-link"
                   >
                     <span class="btn-fill" data-fill></span>
@@ -4371,7 +4371,7 @@ const PageContent = () => {
                       </svg>
                       View all
                     </span>
-                  </a>
+                  </Link>
                 </p>
               </div>
               <slider-element class="grid slider" selector=".card-grid>.card">

@@ -1,0 +1,14 @@
+#shopify-section-template--17771870716150__main-collection-banner {
+    --section-padding-top: 0px;
+    --section-padding-bottom: 0px;
+    --color-foreground: 255 255 255;
+    --color-border: var(--color-foreground)/ 0.1;
+    --color-border-dark: var(--color-foreground)/ 0.4;
+    --color-border-light: var(--color-foreground)/ 0.06;
+    --color-overlay: 0 0 0;
+    --overlay-opacity: 0.4;
+}
+#shopify-section-template--17771870716150__main-collection {
+    --section-padding-top: 40px;
+    --section-padding-bottom: 100px;
+}

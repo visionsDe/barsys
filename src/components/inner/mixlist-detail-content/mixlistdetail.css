@@ -1,0 +1,17 @@
+#shopify-section-template--17610579509494__mixlist_information_DtXHb7 {
+    --section-padding-top: 72px;
+    --section-padding-bottom: 72px;
+}
+#shopify-section-template--17610579509494__mixlist_recipes_list_PG6aqh {
+    --section-padding-top: 72px;
+    --section-padding-bottom: 72px;
+}
+#shopify-section-template--17610579509494__collection_list_3UJCQR {
+    --section-padding-top: 72px;
+    --section-padding-bottom: 72px;
+}
+@media screen and (min-width: 1024px) {
+    #shopify-section-template--17610579509494__mixlist_information_DtXHb7 {
+        --product-grid: auto / minmax(0, 1.32fr) minmax(0, 0.68fr);
+    }
+}

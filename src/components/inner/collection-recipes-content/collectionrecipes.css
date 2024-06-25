@@ -1,0 +1,17 @@
+#shopify-section-template--17535652102390__images-with-text-overlay {
+    --section-padding-top: 0px;
+    --section-padding-bottom: 0px;
+    --color-background: 23 23 23;
+    --color-foreground: 255 255 255;
+    --color-border: var(--color-foreground)/ 0.1;
+    --color-border-dark: var(--color-foreground)/ 0.4;
+    --color-border-light: var(--color-foreground)/ 0.06;
+    --color-highlight: 224 165 128;
+    --color-button-background: 255 255 255;
+    --color-button-border: 255 255 255;
+    --color-button-text: 23 23 23;
+}
+#shopify-section-template--17535652102390__main-collection {
+    --section-padding-top: 40px;
+    --section-padding-bottom: 100px;
+}

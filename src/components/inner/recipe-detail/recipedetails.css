@@ -1,0 +1,92 @@
+#shopify-section-template--17495030202614__main-product {
+    --section-padding-top: 72px;
+    --section-padding-bottom: 72px;
+}
+#shopify-block-content-1 {
+    --color-background: 255 251 235;
+    --color-foreground: 180 83 9;
+    --color-border: var(--color-foreground)/ 0.1;
+    --color-border-dark: var(--color-foreground)/ 0.4;
+    --color-border-light: var(--color-foreground)/ 0.06;
+    --color-highlight: 255 221 191;
+}
+
+#shopify-block-content-2 {
+    --color-background: 240 249 255;
+    --color-foreground: 3 105 161;
+    --color-border: var(--color-foreground)/ 0.1;
+    --color-border-dark: var(--color-foreground)/ 0.4;
+    --color-border-light: var(--color-foreground)/ 0.06;
+    --color-highlight: 255 221 191;
+}
+
+#shopify-block-content-3 {
+    --color-background: 255 241 242;
+    --color-foreground: 190 18 60;
+    --color-border: var(--color-foreground)/ 0.1;
+    --color-border-dark: var(--color-foreground)/ 0.4;
+    --color-border-light: var(--color-foreground)/ 0.06;
+    --color-highlight: 255 221 191;
+}
+
+#shopify-block-content-4 {
+    --color-background: 247 254 231;
+    --color-foreground: 77 124 15;
+    --color-border: var(--color-foreground)/ 0.1;
+    --color-border-dark: var(--color-foreground)/ 0.4;
+    --color-border-light: var(--color-foreground)/ 0.06;
+    --color-highlight: 255 221 191;
+}
+#shopify-section-template--17495030202614__collage {
+    --section-padding-top: 72px;
+    --section-padding-bottom: 0px;
+}
+
+#shopify-block-image-1 {
+    --color-foreground: 255 255 255;
+    --color-border: var(--color-foreground)/ 0.1;
+    --color-border-dark: var(--color-foreground)/ 0.4;
+    --color-border-light: var(--color-foreground)/ 0.06;
+    --color-highlight: 253 224 71;
+    --color-overlay: 0 0 0;
+    --overlay-opacity: 0.3;
+}
+
+#shopify-block-video_7HJpGV {
+    --color-foreground: 255 255 255;
+    --color-border: var(--color-foreground)/ 0.1;
+    --color-border-dark: var(--color-foreground)/ 0.4;
+    --color-border-light: var(--color-foreground)/ 0.06;
+    --color-highlight: 253 224 71;
+    --color-overlay: 23 23 23;
+    --overlay-opacity: 0.3;
+}
+
+#shopify-block-image-2 {
+    --color-foreground: 255 255 255;
+    --color-border: var(--color-foreground)/ 0.1;
+    --color-border-dark: var(--color-foreground)/ 0.4;
+    --color-border-light: var(--color-foreground)/ 0.06;
+    --color-highlight: 253 224 71;
+    --color-overlay: 0 0 0;
+    --overlay-opacity: 0.3;
+}
+
+#shopify-block-image-4 {
+    --color-foreground: 255 255 255;
+    --color-border: var(--color-foreground)/ 0.1;
+    --color-border-dark: var(--color-foreground)/ 0.4;
+    --color-border-light: var(--color-foreground)/ 0.06;
+    --color-highlight: 253 224 71;
+    --color-overlay: 0 0 0;
+    --overlay-opacity: 0.3;
+}
+#shopify-section-template--17495030202614__product-recommendations {
+    --section-padding-top: 72px;
+    --section-padding-bottom: 72px;
+}
+@media screen and (min-width: 1024px) {
+    #shopify-section-template--17495030202614__main-product {
+        --product-grid: auto / minmax(0, 1.32fr) minmax(0, 0.68fr);
+    }
+}
