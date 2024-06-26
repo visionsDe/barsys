@@ -1698,9 +1698,9 @@ const PageContent = () => {
                   </h2>
                 </div>
                 <p>
-                  <a
+                  <Link
                     class="button button--secondary icon-with-text"
-                    href="blog-list.html"
+                    href="blogs"
                     is="hover-link"
                   >
                     <span class="btn-fill" data-fill></span>
@@ -1720,7 +1720,7 @@ const PageContent = () => {
                       </svg>
                       View all
                     </span>
-                  </a>
+                  </Link>
                 </p>
               </div>
               <slider-element class="grid slider" selector=".card-grid>.card">

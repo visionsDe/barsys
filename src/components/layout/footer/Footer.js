@@ -1,6 +1,30 @@
 import React from "react";
 import "./footer.css";
 import Image from "next/image";
+import Link from "next/link";
+const linkData = [
+  {
+    title: "Quick Links",
+    links: [
+      { href: "collections", label: "Products" },
+      { href: "collection-recipes", label: "All Recipes" },
+      { href: "mixlist", label: "Mixlists" },
+      { href: "bars", label: "Bars" },
+      { href: "blogs", label: "Blogs" },
+    ],
+  },
+  {
+    title: "Information",
+    links: [
+      { href: "contact-us", label: "Contact us" },
+      { href: "shipping-policy", label: "Shipping Policy" },
+      { href: "refund-policy", label: "Refund Policy" },
+      { href: "privacy-policy", label: "Privacy Policy" },
+      { href: "terms-of-service", label: "Terms of Service" },
+      { href: "#", label: "Pre-Order Terms and Conditions" },
+    ],
+  },
+];
 export const Footer = () => {
   return (
     <>
@@ -10,13 +34,6 @@ export const Footer = () => {
             id="shopify-section-sections--15951473213521__multicolumn-with-icons"
             class="shopify-section shopify-section-group-footer-group"
           >
-            {/* <style>
-                    #shopify-section-sections--15951473213521__multicolumn-with-icons {
-                        --section-padding-top: 60px;
-                        --section-padding-bottom: 60px;
-                    }
-                </style> */}
-
             <div class="section section--padding section--divider">
               <div class="page-width relative">
                 <carousel-element
@@ -38,8 +55,8 @@ export const Footer = () => {
                         />
                         <path
                           d="M4.94 17.43V19.86C4.94 20.93 6.01 22 7.43 22H11.65M20.56 13.78V10.67C20.57 5.74 16.58 1.75 11.66 1.75C6.74 1.75 2.75 5.74 2.75 10.66V13.77M12.27 21.99C12.27 22.32 12 22.59 11.67 22.59C11.34 22.59 11.07 22.32 11.07 21.99M12.27 21.99C12.27 21.66 12 21.39 11.67 21.39C11.34 21.39 11.07 21.66 11.07 21.99M12.27 21.99H11.07M20.57 14.76V12.96C20.57 12.13 20.57 11.71 20.43 11.39C20.25 10.95 19.9 10.61 19.47 10.43C19.14 10.29 18.73 10.29 17.9 10.29C17.07 10.29 16.65 10.29 16.33 10.43C15.89 10.61 15.55 10.96 15.37 11.39C15.23 11.72 15.23 12.13 15.23 12.96V14.76C15.23 15.59 15.23 16.01 15.37 16.33C15.55 16.77 15.9 17.11 16.33 17.29C16.66 17.43 17.07 17.43 17.9 17.43C18.73 17.43 19.15 17.43 19.47 17.29C19.91 17.11 20.25 16.76 20.43 16.33C20.57 16 20.57 15.59 20.57 14.76ZM5.43 17.43C6.26 17.43 6.68 17.43 7 17.29C7.44 17.11 7.78 16.76 7.96 16.33C8.1 16 8.1 15.59 8.1 14.76V12.96C8.1 12.13 8.1 11.71 7.96 11.39C7.78 10.95 7.43 10.61 7 10.43C6.67 10.29 6.26 10.29 5.43 10.29C4.6 10.29 4.18 10.29 3.86 10.43C3.42 10.61 3.08 10.96 2.9 11.39C2.76 11.72 2.76 12.13 2.76 12.96V14.76C2.76 15.59 2.76 16.01 2.9 16.33C3.08 16.77 3.43 17.11 3.86 17.29C4.19 17.43 4.6 17.43 5.43 17.43Z"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                         />
                       </svg>
                     </div>
@@ -70,8 +87,8 @@ export const Footer = () => {
                         />
                         <path
                           d="M7.49988 9.5L16.5 4M12 12.5L21 7M12 12.5L3 7M12 12.5V22.5M2 9.71771V14.2823C2 15.2733 2 15.7688 2.14219 16.2141C2.26802 16.6081 2.47396 16.9718 2.74708 17.2824C3.05572 17.6334 3.48062 17.8884 4.33042 18.3983L9.53042 21.5183C10.4283 22.057 10.8773 22.3264 11.3565 22.4316C11.7805 22.5247 12.2195 22.5247 12.6435 22.4316C13.1227 22.3264 13.5717 22.057 14.4696 21.5183L19.6696 18.3983C20.5194 17.8884 20.9443 17.6334 21.2529 17.2824C21.526 16.9718 21.732 16.6081 21.8578 16.2141C22 15.7688 22 15.2733 22 14.2823V9.71771C22 8.72669 22 8.23117 21.8578 7.78593C21.732 7.39192 21.526 7.02818 21.2529 6.71757C20.9443 6.36657 20.5194 6.11163 19.6696 5.60175L14.4696 2.48175C13.5717 1.94301 13.1227 1.67364 12.6435 1.56839C12.2195 1.4753 11.7805 1.4753 11.3565 1.56839C10.8773 1.67364 10.4283 1.94301 9.53042 2.48175L4.33042 5.60175C3.48062 6.11163 3.05572 6.36657 2.74708 6.71757C2.47396 7.02818 2.26802 7.39192 2.14219 7.78593C2 8.23117 2 8.72669 2 9.71771Z"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                         />
                       </svg>
                     </div>
@@ -106,8 +123,8 @@ export const Footer = () => {
                         />
                         <path
                           d="M8 1V4M16 1V4M17.5 8H6.5M8 12.5C8 12.7761 7.77614 13 7.5 13C7.22386 13 7 12.7761 7 12.5M8 12.5C8 12.2239 7.77614 12 7.5 12C7.22386 12 7 12.2239 7 12.5M8 12.5H7M8 16.5C8 16.7761 7.77614 17 7.5 17C7.22386 17 7 16.7761 7 16.5M8 16.5C8 16.2239 7.77614 16 7.5 16C7.22386 16 7 16.2239 7 16.5M8 16.5H7M12.5 12.5C12.5 12.7761 12.2761 13 12 13C11.7239 13 11.5 12.7761 11.5 12.5M12.5 12.5C12.5 12.2239 12.2761 12 12 12C11.7239 12 11.5 12.2239 11.5 12.5M12.5 12.5H11.5M12.5 16.5C12.5 16.7761 12.2761 17 12 17C11.7239 17 11.5 16.7761 11.5 16.5M12.5 16.5C12.5 16.2239 12.2761 16 12 16C11.7239 16 11.5 16.2239 11.5 16.5M12.5 16.5H11.5M17 12.5C17 12.7761 16.7761 13 16.5 13C16.2239 13 16 12.7761 16 12.5M17 12.5C17 12.2239 16.7761 12 16.5 12C16.2239 12 16 12.2239 16 12.5M17 12.5H16M17 16.5C17 16.7761 16.7761 17 16.5 17C16.2239 17 16 16.7761 16 16.5M17 16.5C17 16.2239 16.7761 16 16.5 16C16.2239 16 16 16.2239 16 16.5M17 16.5H16M8.4 22H15.6C17.8402 22 18.9603 22 19.816 21.564C20.5686 21.1805 21.1805 20.5686 21.564 19.816C22 18.9603 22 17.8402 22 15.6V8.4C22 6.15979 22 5.03968 21.564 4.18404C21.1805 3.43139 20.5686 2.81947 19.816 2.43597C18.9603 2 17.8402 2 15.6 2H8.4C6.15979 2 5.03968 2 4.18404 2.43597C3.43139 2.81947 2.81947 3.43139 2.43597 4.18404C2 5.03968 2 6.15979 2 8.4V15.6C2 17.8402 2 18.9603 2.43597 19.816C2.81947 20.5686 3.43139 21.1805 4.18404 21.564C5.03968 22 6.15979 22 8.4 22Z"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                         />
                       </svg>
                     </div>
@@ -135,8 +152,8 @@ export const Footer = () => {
                         />
                         <path
                           d="M9 12L11 14L15.5 9.5M9.40073 2.15523L5.85055 3.73308C4.81875 4.19165 4.30286 4.42093 3.92457 4.78337C3.59019 5.10373 3.33451 5.49716 3.17756 5.93283C3 6.42571 3 6.99027 3 8.11938V13.5748C3 14.8271 3 15.4532 3.1726 16.0216C3.32541 16.5247 3.57592 16.9928 3.90982 17.3991C4.28697 17.858 4.80796 18.2053 5.84992 18.8999L9.33744 21.2249C10.2997 21.8665 10.7808 22.1872 11.3009 22.3118C11.7605 22.422 12.2395 22.422 12.6991 22.3118C13.2192 22.1872 13.7003 21.8665 14.6626 21.2249L18.1501 18.8999C19.192 18.2053 19.713 17.858 20.0902 17.3991C20.4241 16.9928 20.6746 16.5247 20.8274 16.0216C21 15.4532 21 14.8271 21 13.5748V8.11938C21 6.99027 21 6.42571 20.8224 5.93283C20.6655 5.49716 20.4098 5.10373 20.0754 4.78337C19.6971 4.42093 19.1812 4.19165 18.1495 3.73308L14.5993 2.15523C13.6421 1.72982 13.1635 1.51712 12.666 1.43311C12.2251 1.35866 11.7749 1.35866 11.334 1.43311C10.8365 1.51712 10.3579 1.72982 9.40073 2.15523Z"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                         />
                       </svg>
                     </div>
@@ -157,20 +174,6 @@ export const Footer = () => {
             id="shopify-section-sections--15951473213521__footer"
             class="shopify-section shopify-section-group-footer-group"
           >
-            {/* <style data-shopify>
-                    #shopify-section-sections--15951473213521__footer {
-                        --section-padding-top: 72px;
-                        --section-padding-bottom: 72px;
-                        --color-background: 31 31 31;
-                        --color-foreground: 255 255 255;
-                        --color-border: var(--color-foreground)/ 0.1;
-                        --color-border-dark: var(--color-foreground)/ 0.4;
-                        --color-border-light: var(--color-foreground)/ 0.06;
-                        --color-button-background: 255 255 255;
-                        --color-button-border: 255 255 255;
-                        --color-button-text: 0 0 0;
-                    }
-                </style> */}
             <div
               class="section section--padding section--rounded"
               is="footer-parallax"
@@ -178,11 +181,6 @@ export const Footer = () => {
               <footer class="footer page-width relative grid">
                 <div class="footer__left flex flex-col md:flex-row gap-10">
                   <div class="footer__logo flex flex-col gap-10">
-                    {/* <style>
-                                    .footer__logo>a {
-                                        height: 55px;
-                                    }
-                                </style> */}
                     <p class="inline-flex leading-none">
                       <a href="/">
                         <span class="sr-only">Barsys</span>
@@ -193,16 +191,58 @@ export const Footer = () => {
                           width={49.00519031141869}
                           height={55}
                         />
-                        {/* <img src="assets/images/Barsys-icon-white.png" alt="" loading="eager" 
-                                        style="--image-width: 49.00519031141869px; --image-height: 55px;" is="lazy-image"
-                                         /> */}
                       </a>
                     </p>
                   </div>
                   <div class="footer__accordions flex flex-wrap flex-col md:flex-row md:grow md:gap-12">
-                    <details
+                    {linkData.map((section, index) => {
+                      return (
+                        <details
+                          class={`footer__item--link_list-${
+                            index + 1
+                          } details active`}
+                          is="footer-details"
+                          open
+                        >
+                          <summary class="details__summary flex items-center justify-between gap-2 cursor-pointer">
+                            <span class="text-base-2xl font-medium">
+                              {section.title}
+                            </span>
+                            <svg
+                              class="icon icon-chevron-up icon-md"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 15L12 9L18 15"
+                              ></path>
+                            </svg>
+                          </summary>
+                          <div class="details__content">
+                            <ul class="flex flex-col gap-3">
+                              {section.links.map((link, id) => (
+                                <li key={id} className="inline-flex">
+                                  <Link
+                                    href={link.href}
+                                    className="block reversed-link text-sm-lg leading-tight"
+                                  >
+                                    {link.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </details>
+                      );
+                    })}
+                    {/* <details
                       class="footer__item--link_list-1 details active"
                       is="footer-details"
+                      open
                     >
                       <summary class="details__summary flex items-center justify-between gap-2 cursor-pointer">
                         <span class="text-base-2xl font-medium">
@@ -216,8 +256,8 @@ export const Footer = () => {
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
                             d="M6 15L12 9L18 15"
                           ></path>
                         </svg>
@@ -266,17 +306,11 @@ export const Footer = () => {
                           </li>
                         </ul>
                       </div>
-                      {/* <style>
-                                        @media (min-width: 1280px) {
-                                            .footer__item--link_list-1 {
-                                                width: calc(50% - var(--sp-12));
-                                            }
-                                        }
-                                    </style> */}
                     </details>
                     <details
                       class="footer__item--link_list-2 details active"
                       is="footer-details"
+                      open
                     >
                       <summary class="details__summary flex items-center justify-between gap-2 cursor-pointer">
                         <span class="text-base-2xl font-medium">
@@ -290,8 +324,8 @@ export const Footer = () => {
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
                             d="M6 15L12 9L18 15"
                           ></path>
                         </svg>
@@ -356,14 +390,7 @@ export const Footer = () => {
                           </li>
                         </ul>
                       </div>
-                      {/* <style>
-                                        @media (min-width: 1280px) {
-                                            .footer__item--link_list-2 {
-                                                width: calc(50% - var(--sp-12));
-                                            }
-                                        }
-                                    </style> */}
-                    </details>
+                    </details> */}
                     <div class="footer__item--brand_information no-details">
                       <div class="details__content">
                         <div class="footer__contact flex flex-col gap-1">
@@ -391,13 +418,6 @@ export const Footer = () => {
                           </p>
                         </div>
                       </div>
-                      {/* <style>
-                                        @media (min-width: 1280px) {
-                                            .footer__item--brand_information {
-                                                width: calc(50% - var(--sp-12));
-                                            }
-                                        }
-                                    </style> */}
                     </div>
                   </div>
                 </div>
@@ -410,7 +430,7 @@ export const Footer = () => {
                       method="post"
                       action="/contact#newsletter-sections--15951473213521__footer"
                       id="newsletter-sections--15951473213521__footer"
-                      acceptCharset="UTF-8"
+                      accept-charset="UTF-8"
                       class="newsletter-form grid gap-5"
                     >
                       <input type="hidden" name="form_type" value="customer" />
@@ -432,9 +452,9 @@ export const Footer = () => {
                           type="email"
                           name="contact[email]"
                           value=""
-                          autoCorrect="off"
-                          autoCapitalize="off"
-                          autoComplete="email"
+                          autocorrect="off"
+                          autocapitalize="off"
+                          autocomplete="email"
                           placeholder="Enter your email"
                           required
                         />
@@ -461,8 +481,8 @@ export const Footer = () => {
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
                                   d="M2 8.00012H14M14 8.00012L9.33333 3.3335M14 8.00012L9.33333 12.6668"
                                 ></path>
                               </svg>
@@ -585,13 +605,6 @@ export const Footer = () => {
             id="shopify-section-sections--15951473213521__footer-copyright"
             class="shopify-section shopify-section-group-footer-group"
           >
-            {/* <style data-shopify>
-                    #shopify-section-sections--15951473213521__footer-copyright {
-                        --gradient-background: #171717;
-                        --color-background: 23 23 23;
-                        --color-foreground: 255 255 255;
-                    }
-                </style> */}
             <div class="section section--rounded" is="footer-parallax">
               <div class="footer-copyright page-width page-width--full w-full flex flex-col items-center justify-between gap-4 lg:gap-0 lg:flex-row relative">
                 <div class="rte credits text-center">
@@ -636,9 +649,9 @@ export const Footer = () => {
                       method="post"
                       action="/localization"
                       id="localization_country_form_footer"
-                      acceptCharset="UTF-8"
+                      accept-charset="UTF-8"
                       class="localization__form flex items-center relative"
-                      encType="multipart/form-data"
+                      enctype="multipart/form-data"
                       is="localization-form"
                     >
                       <input
@@ -663,38 +676,38 @@ export const Footer = () => {
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                           d="M0.666687 2.66675V5.33341C0.666687 6.43808 2.45735 7.33341 4.66669 7.33341C6.87602 7.33341 8.66669 6.43808 8.66669 5.33341V2.66675"
                         ></path>
                         <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                           d="M0.666687 5.3335V8.00016C0.666687 9.10483 2.45735 10.0002 4.66669 10.0002C5.69135 10.0002 6.62535 9.80683 7.33335 9.49016"
                         ></path>
                         <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                           d="M0.666687 8V10.6667C0.666687 11.7713 2.45735 12.6667 4.66669 12.6667C5.69135 12.6667 6.62602 12.474 7.33335 12.1573"
                         ></path>
                         <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                           d="M4.66669 4.66675C6.87583 4.66675 8.66669 3.77132 8.66669 2.66675C8.66669 1.56218 6.87583 0.666748 4.66669 0.666748C2.45755 0.666748 0.666687 1.56218 0.666687 2.66675C0.666687 3.77132 2.45755 4.66675 4.66669 4.66675Z"
                         ></path>
                         <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                           d="M7.33337 8V10.6667C7.33337 11.7713 9.12404 12.6667 11.3334 12.6667C13.5427 12.6667 15.3334 11.7713 15.3334 10.6667V8"
                         ></path>
                         <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                           d="M7.33337 10.6667V13.3334C7.33337 14.4381 9.12404 15.3334 11.3334 15.3334C13.5427 15.3334 15.3334 14.4381 15.3334 13.3334V10.6667"
                         ></path>
                         <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                           d="M11.3334 10C13.5425 10 15.3334 9.10457 15.3334 8C15.3334 6.89543 13.5425 6 11.3334 6C9.12424 6 7.33337 6.89543 7.33337 8C7.33337 9.10457 9.12424 10 11.3334 10Z"
                         ></path>
                       </svg>
@@ -721,8 +734,8 @@ export const Footer = () => {
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                           d="M6 9L12 15L18 9"
                         ></path>
                       </svg>
