@@ -1,18 +1,25 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 const MixlistSlider = () => {
   const SlideContainer = useRef();
-  const SlideItem = useRef();
-  const LastSlideItem = useRef();
   const [showRightBtn, setRightBtnActive] = useState(true);
   const [showLeftBtn, setLeftBtnActive] = useState(false);
+  const [SlideFirstItem, setFirstItem] = useState();
+  const [SlideLastItem, setLastItem] = useState();
+
+  useEffect(() => {
+    const childNodes = SlideContainer.current.firstElementChild.childNodes;
+    const LastSlideItem = childNodes[childNodes.length - 1];
+    setFirstItem(childNodes[0]);
+    setLastItem(LastSlideItem);
+  }, []);
 
   const UpdateBtnStatus = () => {
     if (SlideContainer.current.scrollLeft == 0) UpdateBtnState(false, true);
     else if (
       SlideContainer.current.scrollLeft + SlideContainer.current.clientWidth >=
-      LastSlideItem.current.offsetLeft + LastSlideItem.current.clientWidth
+      SlideLastItem.offsetLeft + SlideLastItem.clientWidth
     )
       UpdateBtnState(true);
     else UpdateBtnState(true, true);
@@ -26,7 +33,7 @@ const MixlistSlider = () => {
   const SlideLeftToRight = () => {
     SlideContainer.current.scrollTo({
       left:
-        Number(getComputedStyle(SlideItem.current).width.replace("px", "")) * 4,
+        Number(getComputedStyle(SlideFirstItem).width.replace("px", "")) * 4,
       behavior: "smooth",
     });
   };
@@ -115,7 +122,6 @@ const MixlistSlider = () => {
         >
           <motion-list class="card-grid card-grid--4 mobile:card-grid--1 grid">
             <div
-              ref={SlideItem}
               class="card media-card media-card--card media-card--overlap overflow-hidden"
               id="shopify-block-custom_box_D9iHh7"
             >
@@ -380,7 +386,6 @@ const MixlistSlider = () => {
               </a>
             </div>
             <div
-              ref={LastSlideItem}
               class="card media-card media-card--card overflow-hidden"
               id="shopify-block-collection_LPgnmB"
             >
