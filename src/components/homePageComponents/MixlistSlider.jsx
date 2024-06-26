@@ -3,19 +3,38 @@ import React, { useRef, useState } from "react";
 import Image from "next/image";
 const MixlistSlider = () => {
   const SlideContainer = useRef();
-  const [isRightButtonActive, setRightButtonActive] = useState(true);
+  const SlideItem = useRef();
+  const LastSlideItem = useRef();
+  const [showRightBtn, setRightBtnActive] = useState(true);
+  const [showLeftBtn, setLeftBtnActive] = useState(false);
 
-  const slide = () => {
-    console.log("scrollLeft", SlideContainer.current.left);
+  const UpdateBtnStatus = () => {
+    if (SlideContainer.current.scrollLeft == 0) UpdateBtnState(false, true);
+    else if (
+      SlideContainer.current.scrollLeft + SlideContainer.current.clientWidth >=
+      LastSlideItem.current.offsetLeft + LastSlideItem.current.clientWidth
+    )
+      UpdateBtnState(true);
+    else UpdateBtnState(true, true);
   };
 
-  const SlideLeft = () => {
-    SlideContainer.current.style.transform = "translateX(-43%)";
-    setRightButtonActive(!isRightButtonActive);
+  const UpdateBtnState = (left = false, right = false) => {
+    setLeftBtnActive(left);
+    setRightBtnActive(right);
   };
-  const SlideRight = () => {
-    SlideContainer.current.style.transform = "translateX(0)";
-    setRightButtonActive(!isRightButtonActive);
+
+  const SlideLeftToRight = () => {
+    SlideContainer.current.scrollTo({
+      left:
+        Number(getComputedStyle(SlideItem.current).width.replace("px", "")) * 4,
+      behavior: "smooth",
+    });
+  };
+  const SlideRightToLeft = () => {
+    SlideContainer.current.scrollTo({
+      left: 0,
+      behavior: "smooth",
+    });
   };
   return (
     <div class="section section--padding">
@@ -33,13 +52,13 @@ const MixlistSlider = () => {
           </div>
           <div class="indicators hidden lg:flex gap-2d5">
             <button
-              onClick={SlideRight}
+              onClick={SlideRightToLeft}
               class="button button--secondary"
               type="button"
               is="previous-button"
               aria-controls="Slider-template--15951546220625__collection-list"
               aria-label="Previous"
-              disabled={isRightButtonActive}
+              disabled={!showLeftBtn}
             >
               <span class="btn-fill" data-fill></span>
               <span class="btn-text">
@@ -59,13 +78,13 @@ const MixlistSlider = () => {
               </span>
             </button>
             <button
-              onClick={SlideLeft}
+              onClick={SlideLeftToRight}
               class="button button--secondary"
               type="button"
               is="next-button"
               aria-controls="Slider-template--15951546220625__collection-list"
               aria-label="Next"
-              disabled={!isRightButtonActive}
+              disabled={!showRightBtn}
             >
               <span class="btn-fill" data-fill></span>
               <span class="btn-text">
@@ -91,14 +110,12 @@ const MixlistSlider = () => {
           id="Slider-template--15951546220625__collection-list"
           class="grid slider slider--desktop slider--tablet"
           selector=".card-grid>.card"
+          ref={SlideContainer}
+          onScroll={UpdateBtnStatus}
         >
-          <motion-list
-            onWheel={slide}
-            ref={SlideContainer}
-            style={{ transition: "0.8s ease" }}
-            class="card-grid card-grid--4 mobile:card-grid--1 grid"
-          >
+          <motion-list class="card-grid card-grid--4 mobile:card-grid--1 grid">
             <div
+              ref={SlideItem}
               class="card media-card media-card--card media-card--overlap overflow-hidden"
               id="shopify-block-custom_box_D9iHh7"
             >
@@ -363,6 +380,7 @@ const MixlistSlider = () => {
               </a>
             </div>
             <div
+              ref={LastSlideItem}
               class="card media-card media-card--card overflow-hidden"
               id="shopify-block-collection_LPgnmB"
             >

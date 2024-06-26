@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const Contexts = [
@@ -42,28 +42,56 @@ const RightIcon = (
 
 const AnnouncementBar = () => {
   const [index, setIndex] = useState(0);
+  const container = useRef();
   const [slideDown, setSlideDown] = useState(false);
+  const [autoSlide, setAutoSlide] = useState(false);
+  const [MouseHover, setMouseHover] = useState(false);
 
   const slideNext = () => {
-    setSlideDown(true);
-    setTimeout(() => {
-      if (index == 2) setIndex(0);
-      else setIndex(index + 1);
-      setSlideDown(false);
-    }, 400);
+    setMouseHover(true);
+    changeSlide("next");
   };
   const slidePrev = () => {
+    setMouseHover(true);
+    changeSlide("prev");
+  };
+
+  const changeSlide = (slide) => {
     setSlideDown(true);
     setTimeout(() => {
-      if (index == 0) setIndex(2);
-      else setIndex(index - 1);
+      setIndex((prev) => {
+        if (slide == "next") return prev == 2 ? 0 : prev + 1;
+        return prev == 0 ? 2 : prev - 1;
+      });
       setSlideDown(false);
+      setMouseHover(false);
     }, 400);
   };
+
+  useEffect(() => {
+    container.current.onmouseenter = () => {
+      setMouseHover(true);
+      setAutoSlide(false);
+    };
+    container.current.onmouseleave = () => {
+      setMouseHover(false);
+    };
+
+    if (autoSlide || MouseHover) return;
+    setTimeout(() => setAutoSlide(true), 6000);
+  }, [autoSlide, MouseHover]);
+
+  useEffect(() => {
+    if (!autoSlide) return;
+    let interval = setInterval(() => slideNext(), 6000);
+
+    return () => clearInterval(interval);
+  }, [autoSlide]);
+
   return (
     <Wrapper>
       <Button onClick={slidePrev}>{LeftIcon}</Button>
-      <Content>
+      <Content ref={container}>
         <Title className={`${slideDown ? "slideDown" : "slideUp"}`}>
           {Contexts[index]}
         </Title>
@@ -90,13 +118,13 @@ const Button = styled.button`
 const Content = styled.div`
   height: 100%;
   color: white;
-  width: 50%;
+  width: 75%;
   font-size: 1rem;
-  margin: 0 5rem;
   padding: 0;
   position: relative;
   display: flex;
   justify-content: center;
+  cursor: grab;
 
   .slideDown {
     top: 100%;

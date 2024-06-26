@@ -12117,13 +12117,13 @@
     }
   }
   
-  .js .image-comparison {
+  /* .js .image-comparison {
     --percent: 10%;
   }
   
   .js .image-comparison[animate] {
     --percent: 50%;
-  }
+  } */
   
   .image-comparison.animating .comparison__after {
     transition: clip-path var(--animation-smooth);
