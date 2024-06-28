@@ -1,8 +1,122 @@
-import React from "react";
+import React, { useState } from "react";
 import "@/components/layout/header/headerStyle.css";
 import Image from "next/image";
 import AnnoucementBar from "@/components/homePageComponents/AnnoucementBar";
+import MagnetElement from "./headerComponets/MagnetElement";
+import UseScroll from "@/components/scroll/UseScroll";
 export const Header = () => {
+  const [scroll,setScroll]= useState(false);
+  UseScroll((scrollTop) => {
+    if (scrollTop > 40) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  });
+  const menuData=[
+        {
+        titile:"Shop",
+        list:[
+          {
+            titleData:[
+              {
+                subMenuTitle:'Cocktail Maker',
+                subMenu:[
+                  "Barsys 2.0+",
+                  "Barsys 360",
+                  "Barsys 360",
+                  "Coaster 2.0"
+                ]
+              },
+              {
+                subMenuTitle:'Bar Accessories Kit (Coming Soon)',
+                subMenu:[
+                  "Classic Bar Kit",
+                  "Mixologist Bar Kit",
+                  "Artisan Bar Kit",
+                ]
+              },
+              {
+                subMenuTitle:'Accessories',
+                subMenu:[
+                  "Wireless Mixer",
+                  "2.0 Bottle Mounts",
+                ]
+              },
+            ],
+            bottom:"View All Products"
+          },
+          {
+            productTitle:'Barsys 360',
+            productContent:"Elevate Your Cocktail Game: Barsys 360",
+            imgUrl:require("../../../assets/images/Barsys_360_header.jpg"),
+            productLinkUrl:"product-details"
+          },
+          {
+            productTitle:'Coaster 2.0',
+            productContent:"Mixology Made Effortless: Barsys Coaster 2.0",
+            productImgUrl:require("../../../assets/images/Barsys_Coaster_header.jpg"),
+            productLinkUrl:"product-details"
+          }
+        ]
+      },
+      {
+        titile:"Explore",
+        list:[
+          {
+                
+            subMenuTitle:'Bars',
+            count:"5",
+            content:'See all the bars we work with',
+            imgUrl:require("../../../assets/images/Explore_bars.jpg"),
+          },
+          {
+            subMenuTitle:'All Recipes',
+            count:"27",
+            content:'Check out all our recipes',
+            imgUrl:require("../../../assets/images/Explore_Mixologist.jpg"),
+            linkUrl:"collection-recipes"
+          },
+          {
+            
+            subMenuTitle:'Mixlists',
+            count:"4",
+            content:'Explore all our mixlists',
+            imgUrl:require("../../../assets/images/Explore_Mixlist.jpg"),
+            linkUrl:"mixlist"
+          },
+          {
+            
+            subMenuTitle:'All Collections',
+            count:"85",
+            content:'Check out all our collections',
+            imgUrl:require("../../../assets/images/Explore_all_recipes.jpg"),
+            linkUrl:"collection-recipes"
+          },
+        ]
+      },
+      {
+        titile:"About Us",
+        list:[
+          {
+           title: "Our Story",
+           linkUrl:"our-story"
+          },
+          {
+            title: "Our Technology",
+            linkUrl:"technology"
+           },
+           {
+            title: " FAQ's",
+            linkUrl:"faqs"
+           }
+        ]
+      },
+      {
+        titile:"Blogs",
+        titileLink:"blog-list"
+      },
+  ]
   const images = [
     {
       src: require("../../../assets/images/Barsys-icon-black.png"),
@@ -180,7 +294,7 @@ export const Header = () => {
       </div>
       <div
         id="shopify-section-sections--15951466070097__header"
-        class="shopify-section shopify-section-group-header-group header-section"
+        class={`shopify-section shopify-section-group-header-group header-section ${scroll?"header-sticky":""}`}
       >
         <menu-drawer
           id="MenuDrawer"
@@ -307,532 +421,7 @@ export const Header = () => {
               role="navigation"
               aria-label="Primary"
             >
-              <ul class="flex flex-wrap list-menu with-block">
-                <li>
-                  <details is="details-mega" trigger="hover" level="top">
-                    <summary>
-                      <magnet-element
-                        class="menu__item text-sm-lg flex items-center font-medium z-2 relative cursor-pointer"
-                        data-magnet="0"
-                      >
-                        <span class="btn-text" data-text>
-                          Shop
-                        </span>
-                        <span class="btn-text btn-duplicate">Shop</span>
-                      </magnet-element>
-                    </summary>
-                    <div class="mega-menu absolute top-0 left-0 w-full max-w-full overflow-hidden pointer-events-none 123">
-                      <div class="mega-menu__container invisible">
-                        <ul
-                          class="mega-menu__list page-width page-width--full flex flex-wrap w-full h-full overflow-hidden"
-                          role="list"
-                          tabIndex="-1"
-                        >
-                          <li class="mega-menu__item mega-menu__item--nav opacity-0 w-full grid">
-                            <ul class="mega-menu__nav grid">
-                              <li class="opacity-0">
-                                <a
-                                  href="#"
-                                  class="heading reversed-link text-base-xl leading-tight font-bold tracking-tight"
-                                >
-                                  Cocktail Maker
-                                </a>
-                                <ul>
-                                  <li>
-                                    <a
-                                      href="product-details.html"
-                                      class="reversed-link text-base xl:text-lg"
-                                    >
-                                      Barsys 2.0+
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a
-                                      href="product-details.html"
-                                      class="reversed-link text-base xl:text-lg"
-                                    >
-                                      Barsys 360
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a
-                                      href="product-details.html"
-                                      class="reversed-link text-base xl:text-lg"
-                                    >
-                                      Coaster 2.0
-                                    </a>
-                                  </li>
-                                </ul>
-                              </li>
-                              <li class="opacity-0">
-                                <a
-                                  href="#"
-                                  class="heading reversed-link text-base-xl leading-tight font-bold tracking-tight"
-                                >
-                                  Bar Accessories Kit (Coming Soon)
-                                </a>
-                                <ul>
-                                  <li>
-                                    <a
-                                      href="#"
-                                      class="reversed-link text-base xl:text-lg"
-                                    >
-                                      Classic Bar Kit
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a
-                                      href="#"
-                                      class="reversed-link text-base xl:text-lg"
-                                    >
-                                      Mixologist Bar Kit
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a
-                                      href="#"
-                                      class="reversed-link text-base xl:text-lg"
-                                    >
-                                      Artisan Bar Kit
-                                    </a>
-                                  </li>
-                                </ul>
-                              </li>
-                              <li class="opacity-0">
-                                <a
-                                  href="#"
-                                  class="heading reversed-link text-base-xl leading-tight font-bold tracking-tight"
-                                >
-                                  Accessories
-                                </a>
-                                <ul>
-                                  <li>
-                                    <a
-                                      href="product-details.html"
-                                      class="reversed-link text-base xl:text-lg"
-                                    >
-                                      Wireless Mixer
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a
-                                      href="product-details.html"
-                                      class="reversed-link text-base xl:text-lg"
-                                    >
-                                      2.0 Bottle Mounts
-                                    </a>
-                                  </li>
-                                </ul>
-                              </li>
-                            </ul>
-                            <div class="mega-menu__footer relative">
-                              <a
-                                class="flex items-center justify-between w-full h-full"
-                                href="collections.html"
-                              >
-                                <span class="reversed-link text-lg-2xl font-bold tracking-tight">
-                                  View All Products
-                                </span>
-                                <svg
-                                  class="icon icon-arrow-right icon-lg transform"
-                                  viewBox="0 0 21 20"
-                                  stroke="currentColor"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334"
-                                  ></path>
-                                </svg>
-                              </a>
-                            </div>
-                          </li>
-                          <li class="mega-menu__item media-card media-card--card media-card--overlap overflow-hidden opacity-0 w-full">
-                            <a
-                              class="media-card__link grid w-full h-full relative"
-                              href="product-details.html"
-                              // style="--color-foreground: 255 255 255; --color-overlay: 0 0 0; --overlay-opacity: 0.3;"
-                            >
-                              <div class="media media--adapt relative overflow-hidden">
-                                <img
-                                  src={require("../../../assets/images/Barsys_360_header.jpg")}
-                                  alt=""
-                                  loading="lazy"
-                                  is="lazy-image"
-                                />
-                              </div>
-                              <div class="media-card__content flex justify-between items-center gap-4 w-full">
-                                <div class="media-card__text opacity-0 shrink-1">
-                                  <span class="heading reversed-link text-xl-3xl font-bold tracking-tighter leading-none relative">
-                                    Barsys 360
-                                    <small class="count font-medium absolute text-xs tracking-none whitespace-nowrap"></small>
-                                  </span>
-                                  <p class="leading-none text-xs">
-                                    Elevate Your Cocktail Game: Barsys 360
-                                  </p>
-                                </div>
-                                <svg
-                                  class="icon icon-arrow-right icon-xs transform shrink-0 hidden xl:block"
-                                  viewBox="0 0 21 20"
-                                  stroke="currentColor"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334"
-                                  ></path>
-                                </svg>
-                              </div>
-                            </a>
-                          </li>
-                          <li class="147 mega-menu__item media-card media-card--card media-card--overlap overflow-hidden opacity-0 w-full">
-                            <a
-                              class="media-card__link grid w-full h-full relative"
-                              href="product-details.html"
-                              // style="--color-foreground: 255 255 255; --color-overlay: 0 0 0; --overlay-opacity: 0.3;"
-                            >
-                              <div class="media media--adapt relative overflow-hidden">
-                                <img
-                                  src={require("../../../assets/images/Barsys_Coaster_header.jpg")}
-                                  alt=""
-                                  loading="lazy"
-                                  is="lazy-image"
-                                />
-                              </div>
-                              <div class="media-card__content flex justify-between items-center gap-4 w-full">
-                                <div class="media-card__text opacity-0 shrink-1">
-                                  <span class="heading reversed-link text-xl-3xl font-bold tracking-tighter leading-none relative">
-                                    Coaster 2.0
-                                    <small class="count font-medium absolute text-xs tracking-none whitespace-nowrap"></small>
-                                  </span>
-                                  <p class="leading-none text-xs">
-                                    Mixology Made Effortless: Barsys Coaster 2.0
-                                  </p>
-                                </div>
-                                <svg
-                                  class="icon icon-arrow-right icon-xs transform shrink-0 hidden xl:block"
-                                  viewBox="0 0 21 20"
-                                  stroke="currentColor"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334"
-                                  ></path>
-                                </svg>
-                              </div>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </details>
-                </li>
-                <li>
-                  <details is="details-mega" trigger="hover" level="top">
-                    <summary>
-                      <magnet-element
-                        class="menu__item text-sm-lg flex items-center font-medium z-2 relative cursor-pointer"
-                        data-magnet="0"
-                      >
-                        <span class="btn-text" data-text>
-                          Explore
-                        </span>
-                        <span class="btn-text btn-duplicate">Explore</span>
-                      </magnet-element>
-                    </summary>
-                    <div class="mega-menu absolute top-0 left-0 w-full max-w-full overflow-hidden pointer-events-none 123">
-                      <div class="mega-menu__container invisible">
-                        <ul
-                          class="mega-menu__list page-width page-width--full flex flex-wrap w-full h-full overflow-hidden"
-                          role="list"
-                          tabIndex="-1"
-                        >
-                          <li class="147 mega-menu__item media-card media-card--card overflow-hidden opacity-0 w-full">
-                            <a
-                              class="media-card__link grid w-full h-full relative"
-                              href="bars.html"
-                              // style="--color-foreground: 23 23 23; --color-overlay: 0 0 0; --overlay-opacity: 0.4;"
-                            >
-                              <div class="media media--adapt relative overflow-hidden">
-                                <img
-                                  src={require("../../../assets/images/Explore_bars.jpg")}
-                                  alt=""
-                                  loading="lazy"
-                                  is="lazy-image"
-                                />
-                              </div>
-                              <div class="media-card__content flex justify-between items-center gap-4 w-full">
-                                <div class="media-card__text opacity-0 shrink-1">
-                                  <span class="heading reversed-link text-xl-3xl font-bold tracking-tighter leading-none relative">
-                                    Bars
-                                    <small class="count font-medium absolute text-xs tracking-none whitespace-nowrap">
-                                      5
-                                    </small>
-                                  </span>
-                                  <p class="leading-none text-xs">
-                                    See all the bars we work with
-                                  </p>
-                                </div>
-                                <svg
-                                  class="icon icon-arrow-right icon-xs transform shrink-0 hidden xl:block"
-                                  viewBox="0 0 21 20"
-                                  stroke="currentColor"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334"
-                                  ></path>
-                                </svg>
-                              </div>
-                            </a>
-                          </li>
-                          <li class="147 mega-menu__item media-card media-card--card overflow-hidden opacity-0 w-full">
-                            <a
-                              class="media-card__link grid w-full h-full relative"
-                              href="collection-recipes.html"
-                              // style="--color-foreground: 23 23 23; --color-overlay: 0 0 0; --overlay-opacity: 0.4;"
-                            >
-                              <div class="media media--adapt relative overflow-hidden">
-                                <img
-                                  src={require("../../../assets/images/Explore_Mixologist.jpg")}
-                                  alt=""
-                                  loading="lazy"
-                                  is="lazy-image"
-                                />
-                              </div>
-                              <div class="media-card__content flex justify-between items-center gap-4 w-full">
-                                <div class="media-card__text opacity-0 shrink-1">
-                                  <span class="heading reversed-link text-xl-3xl font-bold tracking-tighter leading-none relative">
-                                    All Recipes
-                                    <small class="count font-medium absolute text-xs tracking-none whitespace-nowrap">
-                                      27
-                                    </small>
-                                  </span>
-                                  <p class="leading-none text-xs">
-                                    Check out all our recipes
-                                  </p>
-                                </div>
-                                <svg
-                                  class="icon icon-arrow-right icon-xs transform shrink-0 hidden xl:block"
-                                  viewBox="0 0 21 20"
-                                  stroke="currentColor"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334"
-                                  ></path>
-                                </svg>
-                              </div>
-                            </a>
-                          </li>
-                          <li class="147 mega-menu__item media-card media-card--card overflow-hidden opacity-0 w-full">
-                            <a
-                              class="media-card__link grid w-full h-full relative"
-                              href="mixlist.html"
-                              // style="--color-foreground: 23 23 23; --color-overlay: 0 0 0; --overlay-opacity: 0.4;"
-                            >
-                              <div class="media media--adapt relative overflow-hidden">
-                                <img
-                                  src={require("../../../assets/images/Explore_Mixlist.jpg")}
-                                  alt=""
-                                  loading="lazy"
-                                  is="lazy-image"
-                                />
-                              </div>
-                              <div class="media-card__content flex justify-between items-center gap-4 w-full">
-                                <div class="media-card__text opacity-0 shrink-1">
-                                  <span class="heading reversed-link text-xl-3xl font-bold tracking-tighter leading-none relative">
-                                    Mixlists
-                                    <small class="count font-medium absolute text-xs tracking-none whitespace-nowrap">
-                                      4
-                                    </small>
-                                  </span>
-                                  <p class="leading-none text-xs">
-                                    Explore all our mixlists
-                                  </p>
-                                </div>
-                                <svg
-                                  class="icon icon-arrow-right icon-xs transform shrink-0 hidden xl:block"
-                                  viewBox="0 0 21 20"
-                                  stroke="currentColor"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334"
-                                  ></path>
-                                </svg>
-                              </div>
-                            </a>
-                          </li>
-                          <li class="147 mega-menu__item media-card media-card--card media-card--overlap overflow-hidden opacity-0 w-full">
-                            <a
-                              class="media-card__link grid w-full h-full relative"
-                              href="collection-recipes.html"
-                              // style="--color-foreground: 255 255 255; --color-overlay: 0 0 0; --overlay-opacity: 0.4;"
-                            >
-                              <div class="media media--adapt relative overflow-hidden">
-                                <Image
-                                  src={require("../../../assets/images/Explore_all_recipes.jpg")}
-                                  alt=""
-                                  is="lazy-image"
-                                />
-                                {/* <img src="assets/images/Explore_all_recipes.jpg" alt="" is="lazy-image" /> */}
-                              </div>
-                              <div class="media-card__content flex justify-between items-center gap-4 w-full">
-                                <div class="media-card__text opacity-0 shrink-1">
-                                  <span class="heading reversed-link text-xl-3xl font-bold tracking-tighter leading-none relative">
-                                    All Collections
-                                    <small class="count font-medium absolute text-xs tracking-none whitespace-nowrap">
-                                      85
-                                    </small>
-                                  </span>
-                                  <p class="leading-none text-xs">
-                                    Check out all our collections
-                                  </p>
-                                </div>
-                                <svg
-                                  class="icon icon-arrow-right icon-xs transform shrink-0 hidden xl:block"
-                                  viewBox="0 0 21 20"
-                                  stroke="currentColor"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M3 10H18M18 10L12.1667 4.16675M18 10L12.1667 15.8334"
-                                  ></path>
-                                </svg>
-                              </div>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </details>
-                </li>
-                <li>
-                  <details is="details-dropdown" trigger="hover" level="top">
-                    <summary>
-                      <magnet-element
-                        class="menu__item text-sm-lg flex items-center font-medium z-2 relative cursor-pointer"
-                        data-magnet="0"
-                      >
-                        <span class="btn-text" data-text>
-                          About Us
-                        </span>
-                        <span class="btn-text btn-duplicate">About Us</span>
-                      </magnet-element>
-                    </summary>
-                    <div class="dropdown opacity-0 invisible absolute top-0 max-w-full pointer-events-none">
-                      <div class="dropdown__container relative">
-                        <span class="dropdown__corner corner left top flex absolute pointer-events-none">
-                          <svg
-                            class="w-full h-auto"
-                            viewBox="0 0 101 101"
-                            stroke="none"
-                            fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              clipRule="evenodd"
-                              d="M101 0H0V101H1C1 45.7715 45.7715 1 101 1V0Z"
-                            ></path>
-                            <path
-                              d="M1 101C1 45.7715 45.7715 1 101 1"
-                              fill="none"
-                            ></path>
-                          </svg>
-                        </span>
-                        <span class="dropdown__corner corner right top flex absolute pointer-events-none">
-                          <svg
-                            class="w-full h-auto"
-                            viewBox="0 0 101 101"
-                            stroke="none"
-                            fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              clipRule="evenodd"
-                              d="M101 0H0V101H1C1 45.7715 45.7715 1 101 1V0Z"
-                            ></path>
-                            <path
-                              d="M1 101C1 45.7715 45.7715 1 101 1"
-                              fill="none"
-                            ></path>
-                          </svg>
-                        </span>
-                        <ul
-                          class="dropdown__nav grid gap-1d5 xl:gap-2"
-                          role="list"
-                        >
-                          <li class="opacity-0">
-                            <p>
-                              <a
-                                href="our-story.html"
-                                class="reversed-link text-sm-base"
-                              >
-                                Our Story
-                              </a>
-                            </p>
-                          </li>
-                          <li class="opacity-0">
-                            <p>
-                              <a
-                                href="technology.html"
-                                class="reversed-link text-sm-base"
-                              >
-                                Our Technology
-                              </a>
-                            </p>
-                          </li>
-                          <li class="opacity-0">
-                            <p>
-                              <a
-                                href="faqs.html"
-                                class="reversed-link text-sm-base"
-                              >
-                                FAQ's
-                              </a>
-                            </p>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </details>
-                </li>
-                <li>
-                  <a
-                    href="blog-list.html"
-                    class="menu__item text-sm-lg flex items-center font-medium z-2 relative cursor-pointer"
-                    is="magnet-link"
-                    data-magnet="0"
-                  >
-                    <span class="btn-text" data-text>
-                      Blogs
-                    </span>
-                    <span class="btn-text btn-duplicate">Blogs</span>
-                  </a>
-                </li>
-              </ul>
+              <MagnetElement />
             </nav>
           </div>
           <div class="header__icons header__icons--end flex justify-end z-1">

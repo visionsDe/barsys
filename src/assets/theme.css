@@ -4915,7 +4915,7 @@
     column-gap: var(--header-nav-gap)
   }
   
-  .header__menu>ul summary:focus-visible magnet-element {
+  .header__menu>ul summary:focus-visible .magnet-element {
     outline: 2px solid rgb(var(--color-keyboard-focus));
     outline-offset: 3px;
   }
@@ -6950,6 +6950,7 @@
     gap: var(--header-nav-gap);
     padding-block-start: var(--sp-3);
     padding-block-end: var(--sp-14);
+    padding-top: 2rem;
   }
   
   .mega-menu__item {
