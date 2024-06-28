@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { AnimateWhenInView, LoadItemsAnimation } from "../utils/Animate";
 const MixlistSlider = () => {
   const SlideContainer = useRef();
   const [showRightBtn, setRightBtnActive] = useState(true);
@@ -13,6 +14,13 @@ const MixlistSlider = () => {
     const LastSlideItem = childNodes[childNodes.length - 1];
     setFirstItem(childNodes[0]);
     setLastItem(LastSlideItem);
+    SlideContainer.current.style.opacity = 0;
+    AnimateWhenInView(SlideContainer.current, () =>
+      LoadItemsAnimation(
+        childNodes,
+        () => (SlideContainer.current.style.opacity = 1)
+      )
+    );
   }, []);
 
   const UpdateBtnStatus = () => {

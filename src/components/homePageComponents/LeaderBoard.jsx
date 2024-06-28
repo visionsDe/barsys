@@ -1,6 +1,12 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import * as Motion from "motion";
+import HoverAnimatedBtn from "../HOC/HoverAnimatedBtn";
+import {
+  AnimateWhenInView,
+  LoadItemsAnimation,
+  PanelTransition,
+} from "../utils/Animate";
 const LeaderBoard = () => {
   const TabButtons = [
     "Top Cocktails",
@@ -10,7 +16,7 @@ const LeaderBoard = () => {
   const TabPanel1 = useRef();
   const TabPanel2 = useRef();
   const TabPanel3 = useRef();
-  const SlideContainer = useRef();
+  const Title = useRef();
   const [ActiveIndex, setActiveIndex] = useState(0);
   const [TabPanels, setTabPanels] = useState([]);
   const [showRightBtn, setRightBtnActive] = useState(true);
@@ -21,12 +27,45 @@ const LeaderBoard = () => {
 
   useEffect(() => {
     setTabPanels([TabPanel1.current, TabPanel2.current, TabPanel3.current]);
-    const childNodes = SlideContainer.current.firstElementChild.childNodes;
+    HideActionBtn();
+    Title.current.style.transform = "translateY(90%)";
+    AnimateWhenInView(Title.current, () => {
+      Motion.animate(
+        Title.current,
+        {
+          transform: ["translateY(90%)", "translateY(0)"],
+          opacity: [0, 1],
+        },
+        {
+          duration: 1,
+          easing: [0.16, 1, 0.3, 1],
+        }
+      );
+    });
+  }, []);
+
+  useEffect(() => {
+    if (TabPanels.length == 0) return;
+    const childNodes =
+      TabPanels[ActiveIndex].firstElementChild.firstElementChild.childNodes;
     const LastSlideItem = childNodes[childNodes.length - 1];
     setFirstItem(childNodes[0]);
     setLastItem(LastSlideItem);
-    HideActionBtn();
-  }, []);
+    UpdateBtnStatus();
+  }, [ActiveIndex]);
+
+  useEffect(() => {
+    if (TabPanels.length == 0) return;
+    const SlideContainer = TabPanels[ActiveIndex].firstElementChild;
+    const childNodes = SlideContainer.firstElementChild.childNodes;
+    const LastSlideItem = childNodes[childNodes.length - 1];
+    setFirstItem(childNodes[0]);
+    setLastItem(LastSlideItem);
+    // SlideContainer.style.opacity = 0;
+    AnimateWhenInView(SlideContainer, () =>
+      LoadItemsAnimation(childNodes, () => (SlideContainer.style.opacity = 1))
+    );
+  }, [TabPanels]);
 
   const HideActionBtn = () => {
     let offsetRight =
@@ -64,38 +103,14 @@ const LeaderBoard = () => {
       Motion.animate(element, { y: "-76%" }, { duration: 0.6 });
     }
   };
-  const PanelTransition = async (fromPanel, toPanel) => {
-    await Motion.animate(
-      fromPanel,
-      { transform: ["translateY(0)", "translateY(2rem)"], opacity: [1, 0] },
-      { duration: 0.15 }
-    ).finished;
-    fromPanel.hidden = true;
-    toPanel.hidden = false;
-    Motion.animate(
-      toPanel,
-      { transform: ["translateY(2rem)", "translateY(0)"], opacity: [0, 1] },
-      { duration: 0.15 }
-    ).finished;
-    LoadItems(toPanel.firstElementChild.firstElementChild.childNodes);
-  };
-
-  const LoadItems = (childNodes) => {
-    Motion.animate(
-      childNodes,
-      { y: [50, 0], opacity: [0, 1], visibility: ["hidden", "visible"] },
-      {
-        duration: 0.5,
-        delay: Motion.stagger(0.1),
-      }
-    );
-  };
 
   const UpdateBtnStatus = () => {
     HideActionBtn();
-    if (SlideContainer.current.scrollLeft == 0) UpdateBtnState(false, true);
+    if (TabPanels[ActiveIndex].firstElementChild.scrollLeft == 0)
+      UpdateBtnState(false, true);
     else if (
-      SlideContainer.current.scrollLeft + SlideContainer.current.clientWidth >=
+      TabPanels[ActiveIndex].firstElementChild.scrollLeft +
+        TabPanels[ActiveIndex].firstElementChild.clientWidth >=
       SlideLastItem.offsetLeft + SlideLastItem.clientWidth
     )
       UpdateBtnState(true);
@@ -108,14 +123,14 @@ const LeaderBoard = () => {
   };
 
   const SlideLeftToRight = () => {
-    SlideContainer.current.scrollTo({
+    TabPanels[ActiveIndex].firstElementChild.scrollTo({
       left:
         Number(getComputedStyle(SlideFirstItem).width.replace("px", "")) * 4,
       behavior: "smooth",
     });
   };
   const SlideRightToLeft = () => {
-    SlideContainer.current.scrollTo({
+    TabPanels[ActiveIndex].firstElementChild.scrollTo({
       left: 0,
       behavior: "smooth",
     });
@@ -131,6 +146,7 @@ const LeaderBoard = () => {
             <div class="grid gap-4">
               <h2 class="heading font-bold title-md">
                 <split-words
+                  ref={Title}
                   class="split-words flex flex-wrap"
                   data-animate="fade-up-large"
                 >
@@ -146,7 +162,7 @@ const LeaderBoard = () => {
             <div class="scroll-area grid">
               <div class="flex gap-4">
                 {TabButtons.map((text, i) => (
-                  <button
+                  <HoverAnimatedBtn
                     disabled={ActiveIndex === i}
                     class={`tab__item button ${
                       ActiveIndex === i
@@ -158,12 +174,10 @@ const LeaderBoard = () => {
                     role="tab"
                     aria-controls="TabPanel-collection-1"
                     onClick={(e) => ActivateTab(i, e.target)}
-                    onMouseEnter={(e) => btnHoverAnimation(e.target, "start")}
-                    onMouseLeave={(e) => btnHoverAnimation(e.target, "end")}
                   >
                     <span class="btn-fill" data-fill></span>
                     <span class="btn-text">{text}</span>
-                  </button>
+                  </HoverAnimatedBtn>
                 ))}
               </div>
             </div>
@@ -172,7 +186,7 @@ const LeaderBoard = () => {
               class="indicators hidden lg:flex gap-2d5"
               data-index="0"
             >
-              <button
+              <HoverAnimatedBtn
                 class="button button--secondary"
                 type="button"
                 is="previous-button"
@@ -180,8 +194,6 @@ const LeaderBoard = () => {
                 aria-label="Previous"
                 disabled={!showLeftBtn}
                 onClick={SlideRightToLeft}
-                onMouseEnter={(e) => btnHoverAnimation(e.target, "start")}
-                onMouseLeave={(e) => btnHoverAnimation(e.target, "end")}
               >
                 <span class="btn-fill" data-fill></span>
                 <span class="btn-text">
@@ -199,8 +211,8 @@ const LeaderBoard = () => {
                     ></path>
                   </svg>
                 </span>
-              </button>
-              <button
+              </HoverAnimatedBtn>
+              <HoverAnimatedBtn
                 class="button button--secondary"
                 type="button"
                 is="next-button"
@@ -227,13 +239,12 @@ const LeaderBoard = () => {
                     ></path>
                   </svg>
                 </span>
-              </button>
+              </HoverAnimatedBtn>
             </div>
           </tabs-element>
           <div ref={TabPanel1} role="tabpanel">
             <slider-element
               onScroll={UpdateBtnStatus}
-              ref={SlideContainer}
               id="Slider-collection-1"
               class="grid slider slider--desktop slider--tablet"
               selector=".card-grid>.card"
@@ -364,6 +375,7 @@ const LeaderBoard = () => {
           </div>
           <div ref={TabPanel2} role="tabpanel" hidden>
             <slider-element
+              onScroll={UpdateBtnStatus}
               id="Slider-collection-2"
               class="grid slider slider--desktop slider--tablet"
               selector=".card-grid>.card"
@@ -502,6 +514,7 @@ const LeaderBoard = () => {
           </div>
           <div ref={TabPanel3} role="tabpanel" hidden>
             <slider-element
+              onScroll={UpdateBtnStatus}
               id="Slider-collection-3"
               class="grid slider slider--desktop slider--tablet"
               selector=".card-grid>.card"
