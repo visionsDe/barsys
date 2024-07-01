@@ -2,6 +2,7 @@ import Image from "next/image";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { ScrollContext } from "../../../Context/ScrollProvider";
 import styled from "styled-components";
+import { AnimateWhenInView } from "../utils/Animate";
 
 const SlideProductView = () => {
   const [btnPressed, setPressed] = useState(false);
@@ -13,26 +14,16 @@ const SlideProductView = () => {
   const SliderBtn = useRef();
   const HeadText = useRef();
 
-  const isElementVisible = (element, minBound = 300) => {
-    let Bound = element.getBoundingClientRect();
-    let boundTop = Bound.top;
-    if (!(boundTop < minBound && boundTop > 0)) return false;
-
-    return true;
-  };
-
   const ScrollEvent = useContext(ScrollContext);
   useEffect(() => {
-    if (!ScrollEvent) {
-      setSliderPercent(10);
-      animateSlider();
-    } else animateSlider();
-  }, [ScrollEvent]);
+    setSliderPercent(10);
+    animateSlider();
+    AnimateWhenInView(SlideContainer.current, () => animateSlider(true));
+  }, []);
 
-  const animateSlider = () => {
-    if (isElementVisible(HeadText.current) && !animatieText)
-      setAnimatieText(true);
-    if (!isElementVisible(HeadText.current) || animationApplied) return;
+  const animateSlider = (bool) => {
+    if (bool && !animatieText) setAnimatieText(true);
+    if (!bool || animationApplied) return;
     setTimeout(() => {
       setAnimate(true);
       setSliderPercent(50);
