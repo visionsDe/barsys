@@ -2,54 +2,11 @@ import React from "react";
 import "./collectionrecipes.css";
 import Image from "next/image";
 import Link from "next/link";
+import collectionRecipeList from "@/page-data/collectionListData";
+import ScrolledImage from "./ScrolledImage";
 const CollectionRecipesContent = () => {
-  const collectionRecipeList = [
-    {
-      title: "Hot Toddy",
-      imgUrl: require("../../../assets/images/HotToddy.jpg"),
-    },
-    {
-      title: "Ginger Ale Highball",
-      imgUrl: require("../../../assets/images/GingerAleHighball.jpg"),
-    },
-    {
-      title: "Ginger Snap",
-      imgUrl: require("../../../assets/images/GingerSnap.jpg"),
-    },
-    { title: "Gimlet", imgUrl: require("../../../assets/images/Gimlet.jpg") },
-    {
-      title: "Gin & Tonic",
-      imgUrl: require("../../../assets/images/Gin_Tonic.jpg"),
-    },
-    {
-      title: "Ghost-tini",
-      imgUrl: require("../../../assets/images/Ghosttini.jpg"),
-    },
-    {
-      title: "Fuzzy Navel",
-      imgUrl: require("../../../assets/images/FuzzyNavel.jpg"),
-    },
-    {
-      title: "End Zone Punch",
-      imgUrl: require("../../../assets/images/EndZonePunch.jpg"),
-    },
-    {
-      title: "Blueberry Blast Margarita",
-      imgUrl: require("../../../assets/images/Blueberry_Blast_Margarita.jpg"),
-    },
-    {
-      title: "Grilled Pineapple Paradise",
-      imgUrl: require("../../../assets/images/Grilled_Pineapple_Paradise.jpg"),
-    },
-    {
-      title: "Citrus Salute Spritzer",
-      imgUrl: require("../../../assets/images/Citrus_Salute_Spritzer.jpg"),
-    },
-    {
-      title: "Watermelon Wave Smash",
-      imgUrl: require("../../../assets/images/Watermelon_Wave_Smash.jpg"),
-    },
-  ];
+  const imgSrc = require("../../../assets/images/Sex_on_the_Beach.jpg");
+  console.log(imgSrc,"imgSrc");
   return (
     <div class="page-container" id="PageContainer">
       <main class="main-content relative" id="MainContent" role="main">
@@ -61,30 +18,61 @@ const CollectionRecipesContent = () => {
             <div class="relative">
               <div class="banner media--650px mobile:media--500px relative">
                 <span class="banner__overlay absolute top-0 left-0 w-full h-full pointer-events-none"></span>
+                <ScrolledImage />
                 <scrolled-images
                   class="scrolled-images block absolute top-0 left-0 w-full h-full overflow-hidden"
                   data-parallax="1.5"
                 >
-                  <div class="scrolled-images__main absolute top-0 left-0 w-full h-full"></div>
-                  <template>
-                    <lazy-background
+                  <div class="scrolled-images__main absolute top-0 left-0 w-full h-full">
+                  <ScrolledImage />
+                  <lazy-background
                       class="scrolled-images__item"
-                    //   style="background-image:url(assets/images/Sex_on_the_Beach.jpg)"
+                      style={{backgroundImage: `url('/images/Sex_on_the_Beach.jpg')` }}
                     ></lazy-background>
                     <lazy-background
                       class="scrolled-images__item"
+                      style={{backgroundImage: `url(${imgSrc})`}}
                     //   style="background-image:url(assets/images/Manhattan.jpg)"
                     ></lazy-background>
                     <lazy-background
                       class="scrolled-images__item"
+                      style={{backgroundImage: `url(${imgSrc})`}}
                     //   style="background-image:url(assets/images/Long_Island_Iced_Tea.jpg)"
                     ></lazy-background>
                     <lazy-background
                       class="scrolled-images__item"
+                      style={{backgroundImage: `url(${imgSrc})`}}
                     //   style="background-image:url(assets/images/Lemon_Drop.jpg)"
                     ></lazy-background>
                     <lazy-background
                       class="scrolled-images__item"
+                      style={{backgroundImage: `url(${imgSrc})`}}
+                    //   style="background-image:url(assets/images/Blue_Hawaiian.jpg)"
+                    ></lazy-background>
+                  </div>
+                  <template>
+                    <lazy-background
+                      class="scrolled-images__item"
+                      style={{backgroundImage: `url('/images/Sex_on_the_Beach.jpg')` }}
+                    ></lazy-background>
+                    <lazy-background
+                      class="scrolled-images__item"
+                      style={{backgroundImage: `url(${imgSrc})`}}
+                    //   style="background-image:url(assets/images/Manhattan.jpg)"
+                    ></lazy-background>
+                    <lazy-background
+                      class="scrolled-images__item"
+                      style={{backgroundImage: `url(${imgSrc})`}}
+                    //   style="background-image:url(assets/images/Long_Island_Iced_Tea.jpg)"
+                    ></lazy-background>
+                    <lazy-background
+                      class="scrolled-images__item"
+                      style={{backgroundImage: `url(${imgSrc})`}}
+                    //   style="background-image:url(assets/images/Lemon_Drop.jpg)"
+                    ></lazy-background>
+                    <lazy-background
+                      class="scrolled-images__item"
+                      style={{backgroundImage: `url(${imgSrc})`}}
                     //   style="background-image:url(assets/images/Blue_Hawaiian.jpg)"
                     ></lazy-background>
                   </template>
@@ -158,8 +146,6 @@ const CollectionRecipesContent = () => {
           id="shopify-section-template--17535652102390__main-collection"
           class="shopify-section collection-section"
         >
-          
-
           {/* <script src="assets/js/collection.js"></script> */}
           <div class="section section--padding section--rounded relative">
             <div class="collection page-width relative">

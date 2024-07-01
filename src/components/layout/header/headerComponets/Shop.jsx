@@ -3,7 +3,7 @@ import React from 'react'
 
 const Shop = () => {
   return (
-    <div class="mega-menu absolute left-0 w-full max-w-full overflow-hidden pointer-events-none 123" open>
+    <div class="mega-menu absolute left-0 w-full top-0 max-w-full overflow-hidden pointer-events-none 123" open>
                       <div class="mega-menu__container invisible" 
                       style={{visibility: "visible", transform: "translateY(0px)"}}
                       >

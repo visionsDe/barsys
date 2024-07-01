@@ -1,11 +1,15 @@
+"use client";
 import React, { useState } from "react";
 import "@/components/layout/header/headerStyle.css";
 import Image from "next/image";
 import AnnoucementBar from "@/components/homePageComponents/AnnoucementBar";
 import MagnetElement from "./headerComponets/MagnetElement";
 import UseScroll from "@/components/scroll/UseScroll";
+import MenuDrawer from "./headerComponets/MenuDrawer";
 export const Header = () => {
   const [scroll,setScroll]= useState(false);
+  const [mobileMenu,setMobileMenu]=useState(false)
+  console.log(mobileMenu,"mobileMenu");
   UseScroll((scrollTop) => {
     if (scrollTop > 40) {
       setScroll(true);
@@ -13,6 +17,9 @@ export const Header = () => {
       setScroll(false);
     }
   });
+  const handleMenuClick=()=>{
+      setMobileMenu((prev)=>!prev)
+  }
   const menuData=[
         {
         titile:"Shop",
@@ -151,6 +158,7 @@ export const Header = () => {
       class: "white-logo md:hidden absolute",
     },
   ];
+
   return (
     <>
       <div
@@ -294,13 +302,14 @@ export const Header = () => {
       </div>
       <div
         id="shopify-section-sections--15951466070097__header"
-        class={`shopify-section shopify-section-group-header-group header-section ${scroll?"header-sticky":""}`}
+        class={`shopify-section shopify-section-group-header-group header-section ${scroll?"header-sticky header-scrolled header-hidden":""}`}
       >
-        <menu-drawer
+        <MenuDrawer mobileMen={mobileMenu} setMobileMenu={setMobileMenu} />
+        {/* <menu-drawer
           id="MenuDrawer"
           class="menu-drawer drawer drawer--start z-30 fixed bottom-0 left-0 h-full w-full pointer-events-none"
           data-section-id="sections--15951466070097__header"
-          hidden
+        
         >
           <overlay-element
             class="overlay fixed-modal invisible opacity-0 fixed bottom-0 left-0 w-full h-screen pointer-events-none"
@@ -337,7 +346,7 @@ export const Header = () => {
               </button>
             </gesture-element>
           </div>
-        </menu-drawer>
+        </menu-drawer> */}
         <header
           data-section-id="sections--15951466070097__header"
           class="header header--left-center mobile:header--center page-width page-width--full section--padding grid items-center z-20 relative w-full"
@@ -372,7 +381,8 @@ export const Header = () => {
                 type="button"
                 is="magnet-button"
                 aria-controls="MenuDrawer"
-                aria-expanded="false"
+                aria-expanded={mobileMenu?"true":"false"}
+                onClick={handleMenuClick}
               >
                 <span class="sr-only">Site navigation</span>
                 <svg

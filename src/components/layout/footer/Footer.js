@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import "./footer.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,6 +27,18 @@ const linkData = [
   },
 ];
 export const Footer = () => {
+  const [mobileScreen, setMobileScreen] = useState(false);
+console.log(mobileScreen);
+  useEffect(() => {
+    const handleResize = () => {
+      setMobileScreen(window.innerWidth < 1024);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <>
       <div class="page-container" id="PageContainer">
@@ -37,10 +50,13 @@ export const Footer = () => {
             <div class="section section--padding section--divider">
               <div class="page-width relative">
                 <carousel-element
-                  class="text-with-icons block lg:grid grid--4 relative z-1"
+                  class="text-with-icons block lg:grid grid--4 relative z-1 flickity-enabled is-draggable"
                   watch-css
+                  tabindex="0"
                 >
-                  <div class="column flex gap-5 w-full flex-col xl:flex-row xl:text-left text-center">
+                  <div class="flickity-viewport" style={{height: "90.5px"}}>
+                  <div class="flickity-slider" style={{transform: "translateX(0%)"}}>
+                  <div class="column flex gap-5 w-full flex-col xl:flex-row xl:text-left text-center flickity-cell is-selected">
                     <div class="column__icon">
                       <svg
                         class="icon icon-support icon-lg inline-block"
@@ -166,6 +182,9 @@ export const Footer = () => {
                       </div>
                     </div>
                   </div>
+                  </div>
+                  </div>
+                  <div class="flickity-page-dots"><button type="button" class="flickity-page-dot is-selected" aria-label="View slide 1" aria-current="step"></button><button type="button" class="flickity-page-dot" aria-label="View slide 2"></button><button type="button" class="flickity-page-dot" aria-label="View slide 3"></button><button type="button" class="flickity-page-dot" aria-label="View slide 4"></button></div>
                 </carousel-element>
               </div>
             </div>
