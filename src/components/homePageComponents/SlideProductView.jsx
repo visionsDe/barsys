@@ -14,14 +14,6 @@ const SlideProductView = () => {
   const SliderBtn = useRef();
   const HeadText = useRef();
 
-  const isElementVisible = (element, minBound = 300) => {
-    let Bound = element.getBoundingClientRect();
-    let boundTop = Bound.top;
-    if (!(boundTop < minBound && boundTop > 0)) return false;
-
-    return true;
-  };
-
   const ScrollEvent = useContext(ScrollContext);
   useEffect(() => {
     setSliderPercent(10);

@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import * as Motion from "motion";
 import HoverAnimatedBtn from "../HOC/HoverAnimatedBtn";
@@ -10,6 +9,9 @@ const Barsys360BgVideo = () => {
   const TitleText = "Say Hello to the Future".split(" ");
   const Title = useRef();
   useEffect(() => {
+    Title.current.innerHTML = TitleText.map(
+      (text) => `<span>${text}</span>`
+    ).join("");
     Title.current.style.opacity = 0;
     Motion.inView(Title.current, () => {
       Motion.animate(
@@ -28,20 +30,6 @@ const Barsys360BgVideo = () => {
       });
     });
   }, []);
-
-  const btnHoverAnimation = (element, action) => {
-    if (element.hasAttribute("disabled")) return;
-    element = element.firstElementChild ? element.firstElementChild : element;
-
-    if (action == "start") {
-      element.nextSibling.style.color = "white";
-      Motion.animate(element, { y: ["76%", "0%"] }, { duration: 0.6 });
-    }
-    if (action == "end") {
-      element.nextSibling.style.color = "black";
-      Motion.animate(element, { y: "-76%" }, { duration: 0.6 });
-    }
-  };
 
   const handlePlay = () => {
     if (playVideo === true) {
@@ -121,11 +109,7 @@ const Barsys360BgVideo = () => {
                       class="split-words flex flex-wrap"
                       data-animate="fade-up-large"
                       data-animate-delay="250"
-                    >
-                      {TitleText.map((v) => (
-                        <span>{v}</span>
-                      ))}
-                    </split-words>
+                    ></split-words>
                   </h2>
                   <div class="rte leading-normal body subtext-xl text-opacity">
                     <p>

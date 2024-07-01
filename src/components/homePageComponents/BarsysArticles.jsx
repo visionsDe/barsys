@@ -4,6 +4,7 @@ import RollingStone from "../../assets/images/testimonial-RollingStone.png";
 import RobbReport from "../../assets/images/testimonial-Robb_Report.png";
 import FoodBeverages from "../../assets/images/testimonial-Food_Beverage.png";
 import HiConsumption from "../../assets/images/testimonial-HiConsumption.png";
+import * as Motion from "motion";
 
 const BarsysArticles = () => {
   const Testimonies = [
@@ -24,10 +25,19 @@ const BarsysArticles = () => {
       text: "Get yourself the Barsys 360, which literally acts as your own personal bartender at home!",
     },
   ];
-  const Container = useRef();
+  const SlideContainer = useRef();
   const [ActiveIndex, setActiveIndex] = useState(0);
 
   const handleSlide = (i) => {
+    Motion.animate(
+      SlideContainer.current,
+      {
+        transform: `translateX(-${i * 20}%)`,
+      },
+      {
+        duration: 0.7,
+      }
+    );
     setActiveIndex(i);
   };
   return (
@@ -60,31 +70,46 @@ const BarsysArticles = () => {
               <div class="page-width page-width--narrow w-full h-full flex md:items-center md:justify-center items-center justify-center">
                 <div class="banner__box w-full">
                   <testimonials-element
-                    ref={Container}
                     class="testimonials block rte relative z-1"
                     initial-index="3"
                     watch-css
                   >
-                    {Testimonies.map((testimony) => (
-                      <div class="testimonial with-quote flex flex-col">
-                        <blockquote>
-                          <p>{testimony.text}</p>
-                          <a
-                            class="testimonial-image-link"
-                            href="https://streaklinks.com/B7LFO9BHh_vrOKfNyg2YWOPx/https%3A%2F%2Frobbreport.com%2Flifestyle%2Fproduct-recommendations%2Fgallery%2Fbest-boss-gifts-1234858015%2F"
+                    <div
+                      style={{
+                        width: "100%",
+                        overflow: "hidden",
+                      }}
+                    >
+                      <div
+                        ref={SlideContainer}
+                        style={{ width: "500%" }}
+                        class="testimonial flex"
+                      >
+                        {Testimonies.map((testimony) => (
+                          <div
+                            style={{ width: "20%" }}
+                            class="testimonial with-quote flex flex-col"
                           >
-                            <figure class="inline-block media media--adapt media--transparent relative overflow-hidden">
-                              <Image
-                                src={testimony.src}
-                                alt=""
-                                loading="lazy"
-                                is="lazy-image"
-                              />
-                            </figure>
-                          </a>
-                        </blockquote>
+                            <blockquote>
+                              <p>{testimony.text}</p>
+                              <a
+                                class="testimonial-image-link"
+                                href="https://streaklinks.com/B7LFO9BHh_vrOKfNyg2YWOPx/https%3A%2F%2Frobbreport.com%2Flifestyle%2Fproduct-recommendations%2Fgallery%2Fbest-boss-gifts-1234858015%2F"
+                              >
+                                <figure class="inline-block media media--adapt media--transparent relative overflow-hidden">
+                                  <Image
+                                    src={testimony.src}
+                                    alt=""
+                                    loading="lazy"
+                                    is="lazy-image"
+                                  />
+                                </figure>
+                              </a>
+                            </blockquote>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    </div>
                   </testimonials-element>
                   <div class="flickity-page-dots">
                     {Testimonies.map((_, i) => (
